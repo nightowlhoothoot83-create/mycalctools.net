@@ -1,0 +1,77 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scientific Calculator — Full Function with History | MyCalcTools</title>
+<meta name="description" content="Full scientific calculator with trig, log, sqrt, powers and calculation history.">
+<link rel="canonical" href="https://www.mycalctools.net/scientific-calculator.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="google-adsense-account" content="ca-pub-1904958390525375">
+<link rel="stylesheet" href="/style.css">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Scientific Calculator \u2014 Full Function with History", "url": "https://www.mycalctools.net/scientific-calculator.html", "description": "Full scientific calculator with trig, log, sqrt, powers and calculation history.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Ascension Digital Group"}}</script>
+</head><body>
+<div id="brand-strip"></div>
+  <div id="cookie-consent-mount"></div><div id="nav"></div>
+
+
+<div class="tool-page"><div class="container">
+<nav class="breadcrumb"><a href="/index.html">Home</a> › <a href="/index.html#business">Business</a> › Scientific Calculator</nav>
+<div class="tool-header">
+  <div class="tool-header-icon" style="background:rgba(251,191,36,0.12);border:1px solid rgba(251,191,36,0.3)">🔬</div>
+  <h1>Scientific Calculator</h1>
+  <p>Full scientific calculator with trig functions, logarithms, powers and calculation history.</p>
+  <div style="margin-top:10px"><span class="tag business">Scientific Functions</span><span class="tag business">Calculation History</span></div>
+</div>
+<div class="tool-layout">
+<div class="calc-card">
+<div style="background:var(--surface2);border-radius:12px;padding:16px;margin-bottom:16px">
+    <div style="font-family:Syne,sans-serif;font-size:1.4rem;color:var(--text);text-align:right;min-height:40px;word-break:break-all;padding:4px" id="sciDisp">0</div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:10px">
+    <button class="toggle-btn" onclick="si('Math.sin(')">sin</button>
+    <button class="toggle-btn" onclick="si('Math.cos(')">cos</button>
+    <button class="toggle-btn" onclick="si('Math.tan(')">tan</button>
+    <button class="toggle-btn" onclick="si('Math.log10(')">log</button>
+    <button class="toggle-btn" onclick="si('Math.sqrt(')">√</button>
+    <button class="toggle-btn" onclick="si('Math.PI')">π</button>
+    <button class="toggle-btn" onclick="si('**')">xⁿ</button>
+    <button class="toggle-btn" onclick="si('(')">(</button>
+    <button class="toggle-btn" onclick="si(')')">)</button>
+    <button class="toggle-btn" style="color:var(--lifestyle)" onclick="sciClear()">C</button>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px">
+    <button class="toggle-btn" onclick="si('7')">7</button><button class="toggle-btn" onclick="si('8')">8</button><button class="toggle-btn" onclick="si('9')">9</button><button class="toggle-btn active" onclick="si('/')">÷</button>
+    <button class="toggle-btn" onclick="si('4')">4</button><button class="toggle-btn" onclick="si('5')">5</button><button class="toggle-btn" onclick="si('6')">6</button><button class="toggle-btn active" onclick="si('*')">×</button>
+    <button class="toggle-btn" onclick="si('1')">1</button><button class="toggle-btn" onclick="si('2')">2</button><button class="toggle-btn" onclick="si('3')">3</button><button class="toggle-btn active" onclick="si('-')">−</button>
+    <button class="toggle-btn" onclick="si('0')">0</button><button class="toggle-btn" onclick="si('.')">.</button>
+    <button class="btn-calc" onclick="sciCalc()" style="padding:10px">=</button>
+    <button class="toggle-btn active" onclick="si('+')">+</button>
+  </div>
+  <div id="sciHist" style="margin-top:14px;font-size:0.8rem;color:var(--dim)"></div>
+<div class="result-box business" id="sciR">
+    <div class="result-value business" id="sciRVal"></div>
+    <div class="result-label" id="sciRLbl"></div>
+    <div class="result-grid" id="sciRGrid"></div>
+  </div>
+
+</div>
+<div class="sidebar">
+  <div class="info-card"><h3>About</h3><p>Full scientific calculator with trig functions, logarithms, powers and calculation history.</p></div>
+  <div class="ad-rectangle"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1904958390525375" data-ad-format="auto" data-full-width-responsive="true"></ins><script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script></div>
+</div>
+</div>
+<div class="related-section"><h2>Related Tools</h2><div class="related-grid"><a href="/percentage-calculator.html" class="related-card">📊 Percentage Calculator</a></div></div>
+</div></div>
+<script>var sciExpr='';var sciHistory=[];
+  function si(v){sciExpr+=v;document.getElementById('sciDisp').textContent=sciExpr;}
+  function sciClear(){sciExpr='';document.getElementById('sciDisp').textContent='0';}
+  function sciCalc(){
+    try{
+      var result=Function('return '+sciExpr)();
+      sciHistory.unshift(sciExpr+' = '+result);
+      if(sciHistory.length>8)sciHistory.pop();
+      document.getElementById('sciDisp').textContent=result;
+      document.getElementById('sciHist').innerHTML='<strong>History:</strong><br>'+sciHistory.slice(0,5).join('<br>');
+      sciExpr=String(result);
+    }catch(e){document.getElementById('sciDisp').textContent='Error';sciExpr='';}
+  }</script>
+<div id="site-footer"></div><div id="group-footer"></div><script src="/script.js"></script></body></html>

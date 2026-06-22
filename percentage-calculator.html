@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Percentage Calculator — % Of, % Change & % Difference | MyCalcTools</title>
+<meta name="description" content="Three percentage calculators in one: percentage of a number, percentage change, and what % X is of Y.">
+<link rel="canonical" href="https://www.mycalctools.net/percentage-calculator.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="google-adsense-account" content="ca-pub-1904958390525375">
+<link rel="stylesheet" href="/style.css">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Percentage Calculator \u2014 % Of, % Change & % Difference", "url": "https://www.mycalctools.net/percentage-calculator.html", "description": "Three percentage calculators in one: percentage of a number, percentage change, and what % X is of Y.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Ascension Digital Group"}}</script>
+</head><body>
+<div id="brand-strip"></div>
+  <div id="cookie-consent-mount"></div><div id="nav"></div>
+
+
+<div class="tool-page"><div class="container">
+<nav class="breadcrumb"><a href="/index.html">Home</a> › <a href="/index.html#business">Business</a> › Percentage Calculator</nav>
+<div class="tool-header">
+  <div class="tool-header-icon" style="background:rgba(251,191,36,0.12);border:1px solid rgba(251,191,36,0.3)">📊</div>
+  <h1>Percentage Calculator</h1>
+  <p>Calculate percentage of a number, percentage change, or what percentage X is of Y.</p>
+  <div style="margin-top:10px"><span class="tag business">% Change</span><span class="tag business">% Difference</span></div>
+</div>
+<div class="tool-layout">
+<div class="calc-card">
+<div class="toggle-row">
+    <button class="toggle-btn active" id="pct1Btn" onclick="pctMode(1)">% of number</button>
+    <button class="toggle-btn" id="pct2Btn" onclick="pctMode(2)">% change</button>
+    <button class="toggle-btn" id="pct3Btn" onclick="pctMode(3)">X is what %</button>
+  </div>
+  <div id="pctA">
+    <div class="field"><label>Percentage (%)</label><input type="number" id="pP" placeholder="15"></div>
+    <div class="field"><label>Of Number</label><input type="number" id="pN" placeholder="200"></div>
+  </div>
+  <div id="pctB" style="display:none">
+    <div class="field"><label>From Value</label><input type="number" id="pF" placeholder="100"></div>
+    <div class="field"><label>To Value</label><input type="number" id="pT" placeholder="125"></div>
+  </div>
+  <div id="pctC" style="display:none">
+    <div class="field"><label>X (the part)</label><input type="number" id="pX" placeholder="30"></div>
+    <div class="field"><label>Y (the whole)</label><input type="number" id="pY" placeholder="200"></div>
+  </div>
+  <button class="btn-calc" onclick="calcPct()">Calculate</button>
+<div class="result-box business" id="pctR">
+    <div class="result-value business" id="pctRVal"></div>
+    <div class="result-label" id="pctRLbl"></div>
+    <div class="result-grid" id="pctRGrid"></div>
+  </div>
+
+</div>
+<div class="sidebar">
+  <div class="info-card"><h3>About</h3><p>Calculate percentage of a number, percentage change, or what percentage X is of Y.</p></div>
+  <div class="ad-rectangle"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1904958390525375" data-ad-format="auto" data-full-width-responsive="true"></ins><script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script></div>
+</div>
+</div>
+<div class="related-section"><h2>Related Tools</h2><div class="related-grid"><a href="/etsy-calculator.html" class="related-card">🛍️ Etsy Calculator</a><a href="/freelancer-calculator.html" class="related-card">💼 Freelancer Calculator</a></div></div>
+</div></div>
+<script>var _pm=1;
+  function pctMode(m){_pm=m;['pctA','pctB','pctC'].forEach(function(id,i){document.getElementById(id).style.display=i+1===m?'block':'none';});['pct1Btn','pct2Btn','pct3Btn'].forEach(function(id,i){document.getElementById(id).className='toggle-btn'+(i+1===m?' active':'');});}
+  function calcPct(){
+    var r,lbl;
+    if(_pm===1){var p=parseFloat(document.getElementById('pP').value)||0;var n=parseFloat(document.getElementById('pN').value)||0;r=p/100*n;lbl=p+'% of '+n+' = '+r.toFixed(4);}
+    else if(_pm===2){var f=parseFloat(document.getElementById('pF').value)||0;var t=parseFloat(document.getElementById('pT').value)||0;r=(t-f)/f*100;lbl=(r>=0?'Increase':'Decrease')+' of '+Math.abs(r).toFixed(2)+'%';}
+    else{var x=parseFloat(document.getElementById('pX').value)||0;var y=parseFloat(document.getElementById('pY').value)||0;r=x/y*100;lbl=x+' is '+r.toFixed(2)+'% of '+y;}
+    document.getElementById('pctR').className='result-box business visible';
+    document.getElementById('pctRVal').textContent=r.toFixed(2);
+    document.getElementById('pctRLbl').textContent=lbl;
+  }</script>
+<div id="site-footer"></div><div id="group-footer"></div><script src="/script.js"></script></body></html>

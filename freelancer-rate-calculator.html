@@ -1,0 +1,67 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Freelancer Rate Calculator — Full Cost-of-Business Analysis | MyCalcTools</title>
+<meta name="description" content="Detailed freelance rate calculator with full expense breakdown. Find your true cost of running a business.">
+<link rel="canonical" href="https://www.mycalctools.net/freelancer-rate-calculator.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="google-adsense-account" content="ca-pub-1904958390525375">
+<link rel="stylesheet" href="/style.css">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Freelancer Rate Calculator \u2014 Full Cost-of-Business Analysis", "url": "https://www.mycalctools.net/freelancer-rate-calculator.html", "description": "Detailed freelance rate calculator with full expense breakdown. Find your true cost of running a business.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Ascension Digital Group"}}</script>
+</head><body>
+<div id="brand-strip"></div>
+  <div id="cookie-consent-mount"></div><div id="nav"></div>
+
+
+<div class="tool-page"><div class="container">
+<nav class="breadcrumb"><a href="/index.html">Home</a> › <a href="/index.html#business">Business</a> › Freelancer Rate Calculator</nav>
+<div class="tool-header">
+  <div class="tool-header-icon" style="background:rgba(251,191,36,0.12);border:1px solid rgba(251,191,36,0.3)">💹</div>
+  <h1>Freelancer Rate Calculator</h1>
+  <p>Full cost-of-business analysis to find your true freelance rate including all expenses.</p>
+  <div style="margin-top:10px"><span class="tag business">Full Cost Analysis</span><span class="tag business">Day Rate Guide</span></div>
+</div>
+<div class="tool-layout">
+<div class="calc-card">
+<div class="field"><label>Income Target ($)</label><input type="number" id="frr_inc" placeholder="100000"></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+    <div class="field"><label>Software/Tools ($)</label><input type="number" id="frr_soft" placeholder="2400"></div>
+    <div class="field"><label>Equipment ($)</label><input type="number" id="frr_equip" placeholder="1500"></div>
+    <div class="field"><label>Insurance ($)</label><input type="number" id="frr_ins" placeholder="1200"></div>
+    <div class="field"><label>Marketing ($)</label><input type="number" id="frr_mkt" placeholder="2000"></div>
+    <div class="field"><label>Accounting ($)</label><input type="number" id="frr_acc" placeholder="1500"></div>
+    <div class="field"><label>Other Expenses ($)</label><input type="number" id="frr_oth" placeholder="1000"></div>
+  </div>
+  <div class="field"><label>Billable Days per Year</label><input type="number" id="frr_days" placeholder="200"></div>
+  <button class="btn-calc" onclick="calcFRR()">Calculate Rate</button>
+<div class="result-box business" id="frrR">
+    <div class="result-value business" id="frrRVal"></div>
+    <div class="result-label" id="frrRLbl"></div>
+    <div class="result-grid" id="frrRGrid"></div>
+  </div>
+
+</div>
+<div class="sidebar">
+  <div class="info-card"><h3>About</h3><p>Full cost-of-business analysis to find your true freelance rate including all expenses.</p></div>
+  <div class="ad-rectangle"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1904958390525375" data-ad-format="auto" data-full-width-responsive="true"></ins><script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script></div>
+</div>
+</div>
+<div class="related-section"><h2>Related Tools</h2><div class="related-grid"><a href="/freelancer-calculator.html" class="related-card">💼 Freelancer Calculator</a><a href="/pay-calculator.html" class="related-card">💵 Pay Calculator</a></div></div>
+</div></div>
+<script>function calcFRR(){
+    var inc=parseFloat(document.getElementById('frr_inc').value)||0;
+    var ids=['frr_soft','frr_equip','frr_ins','frr_mkt','frr_acc','frr_oth'];
+    var exp=ids.reduce(function(s,id){return s+(parseFloat(document.getElementById(id).value)||0);},0);
+    var days=parseFloat(document.getElementById('frr_days').value)||200;
+    var total=inc+exp;var day=total/days;var hr=day/8;var project=day*5;
+    document.getElementById('frrR').className='result-box business visible';
+    document.getElementById('frrRVal').textContent='$'+day.toFixed(0);
+    document.getElementById('frrRLbl').textContent='day rate';
+    document.getElementById('frrRGrid').innerHTML=
+      '<div class="result-item"><div class="result-item-label">Hourly Rate</div><div class="result-item-value">$'+hr.toFixed(2)+'</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Day Rate</div><div class="result-item-value">$'+day.toFixed(0)+'</div></div>'+
+      '<div class="result-item"><div class="result-item-label">5-Day Project</div><div class="result-item-value">$'+project.toFixed(0)+'</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Annual Expenses</div><div class="result-item-value">$'+exp.toFixed(0)+'</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Revenue Needed</div><div class="result-item-value">$'+total.toFixed(0)+'</div></div>';
+  }</script>
+<div id="site-footer"></div><div id="group-footer"></div><script src="/script.js"></script></body></html>

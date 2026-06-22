@@ -1,0 +1,62 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Screen Time Calculator — Daily & Weekly Usage Tracker | MyCalcTools</title>
+<meta name="description" content="Track your daily and weekly screen time across all devices and compare to healthy guidelines.">
+<link rel="canonical" href="https://www.mycalctools.net/screen-time-calculator.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="google-adsense-account" content="ca-pub-1904958390525375">
+<link rel="stylesheet" href="/style.css">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Screen Time Calculator \u2014 Daily & Weekly Usage Tracker", "url": "https://www.mycalctools.net/screen-time-calculator.html", "description": "Track your daily and weekly screen time across all devices and compare to healthy guidelines.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Ascension Digital Group"}}</script>
+</head><body>
+<div id="brand-strip"></div>
+  <div id="cookie-consent-mount"></div><div id="nav"></div>
+
+
+<div class="tool-page"><div class="container">
+<nav class="breadcrumb"><a href="/index.html">Home</a> › <a href="/index.html#lifestyle">Lifestyle</a> › Screen Time Calculator</nav>
+<div class="tool-header">
+  <div class="tool-header-icon" style="background:rgba(244,114,182,0.12);border:1px solid rgba(244,114,182,0.3)">📱</div>
+  <h1>Screen Time Calculator</h1>
+  <p>Track your daily screen time across all devices and compare to healthy guidelines.</p>
+  <div style="margin-top:10px"><span class="tag lifestyle">Daily Tracking</span><span class="tag lifestyle">Weekly Summary</span></div>
+</div>
+<div class="tool-layout">
+<div class="calc-card">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+    <div class="field"><label>📱 Phone (hrs/day)</label><input type="number" id="stPhone" placeholder="4" step="0.5"></div>
+    <div class="field"><label>📺 TV (hrs/day)</label><input type="number" id="stTV" placeholder="2" step="0.5"></div>
+    <div class="field"><label>💻 Computer (hrs/day)</label><input type="number" id="stPC" placeholder="8" step="0.5"></div>
+    <div class="field"><label>📱 Tablet (hrs/day)</label><input type="number" id="stTab" placeholder="1" step="0.5"></div>
+  </div>
+  <button class="btn-calc" onclick="calcST()">Calculate</button>
+<div class="result-box lifestyle" id="stR">
+    <div class="result-value lifestyle" id="stRVal"></div>
+    <div class="result-label" id="stRLbl"></div>
+    <div class="result-grid" id="stRGrid"></div>
+  </div>
+
+</div>
+<div class="sidebar">
+  <div class="info-card"><h3>About</h3><p>Track your daily screen time across all devices and compare to healthy guidelines.</p></div>
+  <div class="ad-rectangle"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1904958390525375" data-ad-format="auto" data-full-width-responsive="true"></ins><script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script></div>
+</div>
+</div>
+<div class="related-section"><h2>Related Tools</h2><div class="related-grid"><a href="/sleep-cycle-calculator.html" class="related-card">😴 Sleep Cycle</a></div></div>
+</div></div>
+<script>function calcST(){
+    var phone=parseFloat(document.getElementById('stPhone').value)||0;
+    var tv=parseFloat(document.getElementById('stTV').value)||0;
+    var pc=parseFloat(document.getElementById('stPC').value)||0;
+    var tab=parseFloat(document.getElementById('stTab').value)||0;
+    var total=phone+tv+pc+tab;var weekly=total*7;
+    document.getElementById('stR').className='result-box lifestyle visible';
+    document.getElementById('stRVal').textContent=total.toFixed(1);
+    document.getElementById('stRLbl').textContent='hours per day total';
+    document.getElementById('stRGrid').innerHTML=
+      '<div class="result-item"><div class="result-item-label">Daily Total</div><div class="result-item-value">'+total.toFixed(1)+' hrs</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Weekly Total</div><div class="result-item-value">'+weekly.toFixed(0)+' hrs</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Recreational</div><div class="result-item-value">'+(phone+tv+tab).toFixed(1)+' hrs/day</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Work/Productive</div><div class="result-item-value">'+pc.toFixed(1)+' hrs/day</div></div>';
+  }</script>
+<div id="site-footer"></div><div id="group-footer"></div><script src="/script.js"></script></body></html>

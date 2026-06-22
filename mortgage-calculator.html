@@ -1,0 +1,93 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mortgage Calculator — Repayments, LVR & Offset | MyCalcTools</title>
+<meta name="description" content="Calculate your mortgage repayments, LVR percentage, and how extra repayments save years off your loan. Australian mortgage calculator.">
+<link rel="canonical" href="https://www.mycalctools.net/mortgage-calculator.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:title" content="Mortgage Calculator — Repayments, LVR & Offset">
+<meta property="og:description" content="Calculate mortgage repayments, LVR and savings from extra repayments.">
+<meta property="og:url" content="https://www.mycalctools.net/mortgage-calculator.html">
+<meta property="og:type" content="website"><meta property="og:site_name" content="MyCalcTools">
+<meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#080810">
+<meta name="google-adsense-account" content="ca-pub-1904958390525375">
+<link rel="stylesheet" href="/style.css">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Mortgage Calculator \u2014 Repayments, LVR & Offset", "url": "https://www.mycalctools.net/mortgage-calculator.html", "description": "Calculate your mortgage repayments, LVR percentage, and how extra repayments save years off your loan. Australian mortgage calculator.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Ascension Digital Group"}}</script>
+</head><body>
+<div id="brand-strip"></div>
+  <div id="cookie-consent-mount"></div><div id="nav"></div>
+
+<div class="finance-banner container" style="margin:20px auto;max-width:1200px">
+  <h3>🏦 Looking for the best home loan deal?</h3>
+  <p>Our broker partners compare 75+ lenders — full market comparison, expert advice, no obligation.</p>
+  <button class="btn-finance" onclick="window.location.href='<!-- INSERT BROKER LEAD FORM LINK -->'">Get a Free Finance Consultation</button>
+  <small>Referral partnership · Australian credit licence</small>
+</div>
+<div class="tool-page"><div class="container">
+<nav class="breadcrumb"><a href="/index.html">Home</a> › <a href="/index.html#finance">Finance</a> › Mortgage Calculator</nav>
+<div class="tool-header">
+  <div class="tool-header-icon" style="background:rgba(96,165,250,0.12);border:1px solid rgba(96,165,250,0.3)">🏠</div>
+  <h1>Mortgage Calculator</h1>
+  <p>Calculate monthly mortgage repayments, LVR percentage, and savings from extra repayments.</p>
+  <div style="margin-top:10px"><span class="tag finance">LVR</span><span class="tag finance">Extra Repayments</span></div>
+</div>
+<div class="tool-layout">
+<div class="calc-card">
+  <div class="field"><label>Property Value ($)</label><input type="number" id="mProp" placeholder="600000"></div>
+  <div class="field"><label>Deposit / Equity ($)</label><input type="number" id="mDep" placeholder="120000"></div>
+  <div class="field"><label>Annual Interest Rate (%)</label><input type="number" id="mRate" placeholder="6.2" step="0.01"></div>
+  <div class="field"><label>Loan Term (years)</label><input type="number" id="mTerm" placeholder="30" min="1" max="40"></div>
+  <div class="field"><label>Extra Monthly Repayment ($)</label><input type="number" id="mExtra" placeholder="0" min="0"></div>
+  <button class="btn-calc" onclick="calcMort()">Calculate</button>
+  <div class="result-box finance" id="mR">
+    <div class="result-value finance" id="mRVal"></div>
+    <div class="result-label" id="mRLbl">per month</div>
+    <div class="result-grid" id="mRGrid"></div>
+  </div>
+</div>
+<div class="sidebar">
+  <div class="info-card">
+    <h3>About LVR</h3>
+    <p>Loan to Value Ratio (LVR) above 80% usually requires Lenders Mortgage Insurance (LMI). Aim for a 20% deposit to avoid LMI.</p>
+  </div>
+  <div class="ad-rectangle"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1904958390525375" data-ad-format="auto" data-full-width-responsive="true"></ins><script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script></div>
+</div>
+</div>
+<div class="related-section"><h2>Related Tools</h2><div class="related-grid">
+  <a href="/loan-calculator.html" class="related-card">💰 Loan Calculator</a>
+  <a href="/australian-tax-calculator.html" class="related-card">🦘 AU Tax Calculator</a>
+  <a href="/rent-calculator.html" class="related-card">🏘️ Rent Calculator</a>
+</div></div>
+<div class="faq-section"><h2>Frequently Asked Questions</h2>
+  <div class="faq-item"><button class="faq-question">What is LVR? <span class="faq-chevron">▼</span></button><div class="faq-answer"><p>LVR is your loan amount as a percentage of the property value. Above 80% usually requires Lenders Mortgage Insurance (LMI).</p></div></div>
+  <div class="faq-item"><button class="faq-question">How do extra repayments help? <span class="faq-chevron">▼</span></button><div class="faq-answer"><p>Extra repayments reduce your principal faster, saving significant interest over time. Even $200/month extra can save years off a 30-year mortgage.</p></div></div>
+</div>
+</div></div>
+<script>
+function fmt(n){return n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',')}
+function calcMort(){
+  var prop=parseFloat(document.getElementById('mProp').value)||0;
+  var dep=parseFloat(document.getElementById('mDep').value)||0;
+  var rate=parseFloat(document.getElementById('mRate').value)||0;
+  var term=parseFloat(document.getElementById('mTerm').value)||30;
+  var extra=parseFloat(document.getElementById('mExtra').value)||0;
+  var p=prop-dep; var r=rate/100/12; var n=term*12;
+  if(p<=0||r<=0) return;
+  var m=p*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
+  var lvr=(p/prop*100).toFixed(1);
+  var total=m*n; var interest=total-p;
+  var saved=0;
+  if(extra>0){var bal=p,months=0;while(bal>0&&months<n*2){var int=bal*r;var prin=m+extra-int;if(prin>bal)prin=bal;bal-=prin;months++;}saved=n-months;}
+  document.getElementById('mR').className='result-box finance visible';
+  document.getElementById('mRVal').textContent='$'+fmt(m);
+  document.getElementById('mRGrid').innerHTML=
+    '<div class="result-item"><div class="result-item-label">Monthly</div><div class="result-item-value">$'+fmt(m)+'</div></div>'+
+    '<div class="result-item"><div class="result-item-label">Loan Amount</div><div class="result-item-value">$'+fmt(p)+'</div></div>'+
+    '<div class="result-item"><div class="result-item-label">LVR</div><div class="result-item-value" style="color:'+(parseFloat(lvr)>80?'var(--lifestyle)':'var(--health)')+'">'+lvr+'%'+(parseFloat(lvr)>80?' ⚠ LMI':'')+'</div></div>'+
+    '<div class="result-item"><div class="result-item-label">Total Interest</div><div class="result-item-value">$'+fmt(interest)+'</div></div>'+
+    '<div class="result-item"><div class="result-item-label">Total Repayable</div><div class="result-item-value">$'+fmt(total)+'</div></div>'+
+    (extra>0?'<div class="result-item"><div class="result-item-label">Months Saved</div><div class="result-item-value" style="color:var(--health)">'+saved+' months</div></div>':'');
+}
+</script>
+<div id="site-footer"></div><div id="group-footer"></div>
+<script src="/script.js"></script></body></html>

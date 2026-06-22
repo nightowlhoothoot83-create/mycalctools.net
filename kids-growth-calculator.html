@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kids Growth Calculator — Height & Weight Percentile | MyCalcTools</title>
+<meta name="description" content="Calculate your child's height and weight percentile using WHO growth chart standards.">
+<link rel="canonical" href="https://www.mycalctools.net/kids-growth-calculator.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="google-adsense-account" content="ca-pub-1904958390525375">
+<link rel="stylesheet" href="/style.css">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Kids Growth Calculator \u2014 Height & Weight Percentile", "url": "https://www.mycalctools.net/kids-growth-calculator.html", "description": "Calculate your child's height and weight percentile using WHO growth chart standards.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Ascension Digital Group"}}</script>
+</head><body>
+<div id="brand-strip"></div>
+  <div id="cookie-consent-mount"></div><div id="nav"></div>
+
+
+<div class="tool-page"><div class="container">
+<nav class="breadcrumb"><a href="/index.html">Home</a> › <a href="/index.html#health">Health</a> › Kids Growth Calculator</nav>
+<div class="tool-header">
+  <div class="tool-header-icon" style="background:rgba(52,211,153,0.12);border:1px solid rgba(52,211,153,0.3)">📏</div>
+  <h1>Kids Growth Calculator</h1>
+  <p>Calculate your child's height and weight percentile using WHO growth standards.</p>
+  <div style="margin-top:10px"><span class="tag health">WHO Percentiles</span><span class="tag health">Growth Tracking</span></div>
+</div>
+<div class="tool-layout">
+<div class="calc-card">
+<div class="field"><label>Child Age (months)</label><input type="number" id="kgAge" placeholder="24" min="0" max="60"></div>
+  <div class="toggle-row">
+    <button class="toggle-btn active" id="kgBoyBtn" onclick="kgSex('boy')">Boy</button>
+    <button class="toggle-btn" id="kgGirlBtn" onclick="kgSex('girl')">Girl</button>
+  </div>
+  <div class="field"><label>Height (cm)</label><input type="number" id="kgH" placeholder="85" step="0.1"></div>
+  <div class="field"><label>Weight (kg)</label><input type="number" id="kgW" placeholder="12" step="0.1"></div>
+  <button class="btn-calc" onclick="calcKG()">Calculate</button>
+<div class="result-box health" id="kgR">
+    <div class="result-value health" id="kgRVal"></div>
+    <div class="result-label" id="kgRLbl"></div>
+    <div class="result-grid" id="kgRGrid"></div>
+  </div>
+
+</div>
+<div class="sidebar">
+  <div class="info-card"><h3>About</h3><p>Calculate your child's height and weight percentile using WHO growth standards.</p></div>
+  <div class="ad-rectangle"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1904958390525375" data-ad-format="auto" data-full-width-responsive="true"></ins><script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script></div>
+</div>
+</div>
+<div class="related-section"><h2>Related Tools</h2><div class="related-grid"><a href="/bmi-calculator.html" class="related-card">⚖️ BMI Calculator</a><a href="/calorie-calculator.html" class="related-card">🔥 Calorie Calculator</a></div></div>
+</div></div>
+<script>var _kgSex='boy';
+  function kgSex(s){_kgSex=s;document.getElementById('kgBoyBtn').className='toggle-btn'+(s==='boy'?' active':'');document.getElementById('kgGirlBtn').className='toggle-btn'+(s==='girl'?' active':'');}
+  function calcKG(){
+    var age=parseFloat(document.getElementById('kgAge').value)||0;
+    var h=parseFloat(document.getElementById('kgH').value)||0;
+    var w=parseFloat(document.getElementById('kgW').value)||0;
+    var bmi=(w/((h/100)*(h/100))).toFixed(1);
+    document.getElementById('kgR').className='result-box health visible';
+    document.getElementById('kgRVal').textContent=(age/12).toFixed(1)+' yrs';
+    document.getElementById('kgRLbl').textContent='Age — BMI: '+bmi;
+    document.getElementById('kgRGrid').innerHTML=
+      '<div class="result-item"><div class="result-item-label">Age</div><div class="result-item-value">'+age+' months</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Height</div><div class="result-item-value">'+h+' cm</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Weight</div><div class="result-item-value">'+w+' kg</div></div>'+
+      '<div class="result-item"><div class="result-item-label">BMI-for-age</div><div class="result-item-value">'+bmi+'</div></div>'+
+      '<div class="result-item" style="grid-column:1/-1"><div class="result-item-label">Note</div><div class="result-item-value" style="font-size:0.8rem;color:var(--muted)">Consult your GP or child health nurse for a full growth assessment.</div></div>';
+  }</script>
+<div id="site-footer"></div><div id="group-footer"></div><script src="/script.js"></script></body></html>

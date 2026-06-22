@@ -1,0 +1,62 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Period Calculator — Predict Your Next 3 Periods | MyCalcTools</title>
+<meta name="description" content="Predict your next 3 period start dates and fertile windows based on your cycle length.">
+<link rel="canonical" href="https://www.mycalctools.net/period-calculator.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="google-adsense-account" content="ca-pub-1904958390525375">
+<link rel="stylesheet" href="/style.css">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Period Calculator \u2014 Predict Your Next 3 Periods", "url": "https://www.mycalctools.net/period-calculator.html", "description": "Predict your next 3 period start dates and fertile windows based on your cycle length.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Ascension Digital Group"}}</script>
+</head><body>
+<div id="brand-strip"></div>
+  <div id="cookie-consent-mount"></div><div id="nav"></div>
+
+
+<div class="tool-page"><div class="container">
+<nav class="breadcrumb"><a href="/index.html">Home</a> › <a href="/index.html#health">Health</a> › Period Calculator</nav>
+<div class="tool-header">
+  <div class="tool-header-icon" style="background:rgba(52,211,153,0.12);border:1px solid rgba(52,211,153,0.3)">📅</div>
+  <h1>Period Calculator</h1>
+  <p>Predict your next 3 period dates and fertile windows based on your cycle.</p>
+  <div style="margin-top:10px"><span class="tag health">Cycle Tracking</span><span class="tag health">Fertile Window</span></div>
+</div>
+<div class="tool-layout">
+<div class="calc-card">
+<div class="field"><label>Last Period Start Date</label><input type="date" id="perDate"></div>
+  <div class="field"><label>Cycle Length (days)</label><input type="number" id="perCycle" value="28" min="20" max="45"></div>
+  <div class="field"><label>Period Duration (days)</label><input type="number" id="perDur" value="5" min="1" max="10"></div>
+  <button class="btn-calc" onclick="calcPer()">Predict Periods</button>
+<div class="result-box health" id="perR">
+    <div class="result-value health" id="perRVal"></div>
+    <div class="result-label" id="perRLbl"></div>
+    <div class="result-grid" id="perRGrid"></div>
+  </div>
+
+</div>
+<div class="sidebar">
+  <div class="info-card"><h3>About</h3><p>Predict your next 3 period dates and fertile windows based on your cycle.</p></div>
+  <div class="ad-rectangle"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1904958390525375" data-ad-format="auto" data-full-width-responsive="true"></ins><script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script></div>
+</div>
+</div>
+<div class="related-section"><h2>Related Tools</h2><div class="related-grid"><a href="/ovulation-calculator.html" class="related-card">🌸 Ovulation Calculator</a><a href="/due-date-calculator.html" class="related-card">👶 Due Date</a></div></div>
+</div></div>
+<script>document.addEventListener('DOMContentLoaded',function(){var d=new Date();d.setDate(d.getDate()-14);document.getElementById('perDate').value=d.toISOString().split('T')[0];});
+  function calcPer(){
+    var last=new Date(document.getElementById('perDate').value);
+    var cycle=parseFloat(document.getElementById('perCycle').value)||28;
+    var dur=parseFloat(document.getElementById('perDur').value)||5;
+    var rows='';var o={day:'numeric',month:'short'};
+    for(var i=1;i<=3;i++){
+      var s=new Date(last);s.setDate(last.getDate()+cycle*i);
+      var e=new Date(s);e.setDate(s.getDate()+dur-1);
+      var ov=new Date(s);ov.setDate(s.getDate()-14);
+      rows+='<div class="result-item"><div class="result-item-label">Period '+i+'</div><div class="result-item-value">'+s.toLocaleDateString('en-AU',o)+' – '+e.toLocaleDateString('en-AU',o)+'</div></div>';
+      rows+='<div class="result-item"><div class="result-item-label">Ovulation ~</div><div class="result-item-value">'+ov.toLocaleDateString('en-AU',o)+'</div></div>';
+    }
+    document.getElementById('perR').className='result-box health visible';
+    document.getElementById('perRVal').textContent='3 periods';
+    document.getElementById('perRLbl').textContent='predicted ahead';
+    document.getElementById('perRGrid').innerHTML=rows;
+  }</script>
+<div id="site-footer"></div><div id="group-footer"></div><script src="/script.js"></script></body></html>

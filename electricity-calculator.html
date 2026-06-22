@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electricity Cost Calculator — Running Cost of Any Appliance | MyCalcTools</title>
+<meta name="description" content="Calculate the running cost of any appliance in Australia. Daily, weekly, monthly and annual costs.">
+<link rel="canonical" href="https://www.mycalctools.net/electricity-calculator.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="google-adsense-account" content="ca-pub-1904958390525375">
+<link rel="stylesheet" href="/style.css">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Electricity Cost Calculator \u2014 Running Cost of Any Appliance", "url": "https://www.mycalctools.net/electricity-calculator.html", "description": "Calculate the running cost of any appliance in Australia. Daily, weekly, monthly and annual costs.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Ascension Digital Group"}}</script>
+</head><body>
+<div id="brand-strip"></div>
+  <div id="cookie-consent-mount"></div><div id="nav"></div>
+
+
+<div class="tool-page"><div class="container">
+<nav class="breadcrumb"><a href="/index.html">Home</a> › <a href="/index.html#finance">Finance</a> › Electricity Cost Calculator</nav>
+<div class="tool-header">
+  <div class="tool-header-icon" style="background:rgba(96,165,250,0.12);border:1px solid rgba(96,165,250,0.3)">⚡</div>
+  <h1>Electricity Cost Calculator</h1>
+  <p>Calculate how much any appliance costs to run based on Australian electricity rates.</p>
+  <div style="margin-top:10px"><span class="tag finance">AU Rates</span><span class="tag finance">Any Appliance</span></div>
+</div>
+<div class="tool-layout">
+<div class="calc-card">
+<div class="field"><label>Appliance Wattage (W)</label><input type="number" id="elW" placeholder="1200"></div>
+  <div class="field"><label>Hours per Day</label><input type="number" id="elH" placeholder="3" step="0.5"></div>
+  <div class="field"><label>Days per Week</label><input type="number" id="elD" placeholder="7" min="1" max="7"></div>
+  <div class="field"><label>Rate (c/kWh) — AU average ~30c</label><input type="number" id="elR" placeholder="30" step="0.1"></div>
+  <button class="btn-calc" onclick="calcElec()">Calculate Cost</button>
+<div class="result-box finance" id="elRes">
+    <div class="result-value finance" id="elResVal"></div>
+    <div class="result-label" id="elResLbl"></div>
+    <div class="result-grid" id="elResGrid"></div>
+  </div>
+
+</div>
+<div class="sidebar">
+  <div class="info-card"><h3>About</h3><p>Calculate how much any appliance costs to run based on Australian electricity rates.</p></div>
+  <div class="ad-rectangle"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1904958390525375" data-ad-format="auto" data-full-width-responsive="true"></ins><script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script></div>
+</div>
+</div>
+<div class="related-section"><h2>Related Tools</h2><div class="related-grid"><a href="/solar-calculator.html" class="related-card">☀️ Solar Calculator</a><a href="/rainwater-calculator.html" class="related-card">🌧️ Rainwater</a></div></div>
+</div></div>
+<script>function calcElec(){
+    var w=parseFloat(document.getElementById('elW').value)||0;
+    var h=parseFloat(document.getElementById('elH').value)||0;
+    var d=parseFloat(document.getElementById('elD').value)||7;
+    var r=parseFloat(document.getElementById('elR').value)||30;
+    var kwhDay=w/1000*h*(d/7);
+    var cDay=kwhDay*r/100;
+    var cWeek=kwhDay*7*r/100;
+    var cMonth=cWeek*52/12;
+    var cYear=cWeek*52;
+    document.getElementById('elRes').className='result-box finance visible';
+    document.getElementById('elResVal').textContent='$'+cDay.toFixed(2);
+    document.getElementById('elResLbl').textContent='per day';
+    document.getElementById('elResGrid').innerHTML=
+      '<div class="result-item"><div class="result-item-label">Per Day</div><div class="result-item-value">$'+cDay.toFixed(2)+'</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Per Week</div><div class="result-item-value">$'+cWeek.toFixed(2)+'</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Per Month</div><div class="result-item-value">$'+cMonth.toFixed(2)+'</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Per Year</div><div class="result-item-value">$'+cYear.toFixed(0)+'</div></div>'+
+      '<div class="result-item"><div class="result-item-label">kWh per Day</div><div class="result-item-value">'+kwhDay.toFixed(3)+'</div></div>';
+  }</script>
+<div id="site-footer"></div><div id="group-footer"></div><script src="/script.js"></script></body></html>

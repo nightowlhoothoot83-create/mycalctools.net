@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sleep Cycle Calculator — Best Bedtime & Wake-Up Times | MyCalcTools</title>
+<meta name="description" content="Find your ideal bedtime or wake-up time based on 90-minute sleep cycles. Wake up refreshed every morning.">
+<link rel="canonical" href="https://www.mycalctools.net/sleep-cycle-calculator.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="google-adsense-account" content="ca-pub-1904958390525375">
+<link rel="stylesheet" href="/style.css">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Sleep Cycle Calculator \u2014 Best Bedtime & Wake-Up Times", "url": "https://www.mycalctools.net/sleep-cycle-calculator.html", "description": "Find your ideal bedtime or wake-up time based on 90-minute sleep cycles. Wake up refreshed every morning.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Ascension Digital Group"}}</script>
+</head><body>
+<div id="brand-strip"></div>
+  <div id="cookie-consent-mount"></div><div id="nav"></div>
+
+
+<div class="tool-page"><div class="container">
+<nav class="breadcrumb"><a href="/index.html">Home</a> › <a href="/index.html#health">Health</a> › Sleep Cycle Calculator</nav>
+<div class="tool-header">
+  <div class="tool-header-icon" style="background:rgba(52,211,153,0.12);border:1px solid rgba(52,211,153,0.3)">😴</div>
+  <h1>Sleep Cycle Calculator</h1>
+  <p>Calculate the best times to wake up or go to sleep based on 90-minute sleep cycles.</p>
+  <div style="margin-top:10px"><span class="tag health">Sleep Cycles</span><span class="tag health">Wake-up Times</span></div>
+</div>
+<div class="tool-layout">
+<div class="calc-card">
+<div class="toggle-row">
+    <button class="toggle-btn active" id="slpWakeBtn" onclick="slpSetMode('wake')">I want to wake at...</button>
+    <button class="toggle-btn" id="slpBedBtn" onclick="slpSetMode('bed')">I want to sleep at...</button>
+  </div>
+  <div class="field"><label id="slpTimeLabel">Wake-up Time</label><input type="time" id="slpTime" value="07:00"></div>
+  <div class="field"><label>Minutes to fall asleep</label><input type="number" id="slpFall" value="15" min="5" max="60"></div>
+  <button class="btn-calc" onclick="calcSleep()">Find Best Times</button>
+  <div class="result-box health" id="slpR" style="display:none"><div id="slpTimes"></div></div>
+<div class="result-box health" id="slpR">
+    <div class="result-value health" id="slpRVal"></div>
+    <div class="result-label" id="slpRLbl"></div>
+    <div class="result-grid" id="slpRGrid"></div>
+  </div>
+
+</div>
+<div class="sidebar">
+  <div class="info-card"><h3>About</h3><p>Calculate the best times to wake up or go to sleep based on 90-minute sleep cycles.</p></div>
+  <div class="ad-rectangle"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1904958390525375" data-ad-format="auto" data-full-width-responsive="true"></ins><script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script></div>
+</div>
+</div>
+<div class="related-section"><h2>Related Tools</h2><div class="related-grid"><a href="/water-intake-calculator.html" class="related-card">💧 Water Intake</a><a href="/calorie-calculator.html" class="related-card">🔥 Calorie Calculator</a></div></div>
+</div></div>
+<script>var slpMode='wake';
+  function slpSetMode(m){slpMode=m;document.getElementById('slpWakeBtn').className='toggle-btn'+(m==='wake'?' active':'');document.getElementById('slpBedBtn').className='toggle-btn'+(m==='bed'?' active':'');document.getElementById('slpTimeLabel').textContent=m==='wake'?'Wake-up Time':'Bedtime';}
+  function calcSleep(){
+    var tv=document.getElementById('slpTime').value;var parts=tv.split(':');var h=parseInt(parts[0]),mn=parseInt(parts[1]);
+    var fall=parseInt(document.getElementById('slpFall').value)||15;
+    var html='<p style="font-size:0.85rem;color:var(--muted);margin-bottom:12px">Recommended '+(slpMode==='wake'?'bedtimes':'wake-up times')+':</p>';
+    for(var c=6;c>=3;c--){
+      var total=c*90+fall;var th,tm;
+      if(slpMode==='wake'){th=h;tm=mn-total;while(tm<0){tm+=60;th--;}th=(th+24)%24;}
+      else{th=h;tm=mn+total;while(tm>=60){tm-=60;th++;}th=th%24;}
+      var ampm=th>=12?'PM':'AM';var dh=th>12?th-12:th===0?12:th;
+      html+='<div style="background:var(--surface2);border-radius:10px;padding:12px;text-align:center;margin-bottom:8px"><div style="font-family:Syne,sans-serif;font-size:1.4rem;font-weight:700;color:var(--health)">'+String(dh).padStart(2,'0')+':'+String(tm).padStart(2,'0')+' '+ampm+'</div><div style="font-size:0.78rem;color:var(--dim)">'+c+' cycles — '+(c*1.5)+' hours</div></div>';
+    }
+    document.getElementById('slpR').style.display='block';
+    document.getElementById('slpTimes').innerHTML=html;
+  }</script>
+<div id="site-footer"></div><div id="group-footer"></div><script src="/script.js"></script></body></html>

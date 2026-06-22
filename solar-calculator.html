@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solar & Battery Calculator — Off-Grid System Sizing | MyCalcTools</title>
+<meta name="description" content="Calculate solar panel size and battery bank needed for your Australian off-grid or hybrid system.">
+<link rel="canonical" href="https://www.mycalctools.net/solar-calculator.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="google-adsense-account" content="ca-pub-1904958390525375">
+<link rel="stylesheet" href="/style.css">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Solar & Battery Calculator \u2014 Off-Grid System Sizing", "url": "https://www.mycalctools.net/solar-calculator.html", "description": "Calculate solar panel size and battery bank needed for your Australian off-grid or hybrid system.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Ascension Digital Group"}}</script>
+</head><body>
+<div id="brand-strip"></div>
+  <div id="cookie-consent-mount"></div><div id="nav"></div>
+
+
+<div class="tool-page"><div class="container">
+<nav class="breadcrumb"><a href="/index.html">Home</a> › <a href="/index.html#eco">Eco</a> › Solar & Battery Calculator</nav>
+<div class="tool-header">
+  <div class="tool-header-icon" style="background:rgba(134,239,172,0.12);border:1px solid rgba(134,239,172,0.3)">☀️</div>
+  <h1>Solar & Battery Calculator</h1>
+  <p>Calculate recommended solar panels and battery bank for your Australian off-grid system.</p>
+  <div style="margin-top:10px"><span class="tag eco">Off-Grid Sizing</span><span class="tag eco">AU Sun Hours</span></div>
+</div>
+<div class="tool-layout">
+<div class="calc-card">
+<div class="field"><label>Daily Energy Use (kWh)</label><input type="number" id="solKwh" placeholder="10" step="0.5"></div>
+  <div class="field"><label>State (Peak Sun Hours)</label>
+    <select id="solState">
+      <option value="5.5">QLD (5.5 hrs/day)</option>
+      <option value="4.9">NSW (4.9 hrs/day)</option>
+      <option value="4.6">VIC (4.6 hrs/day)</option>
+      <option value="5.5">WA (5.5 hrs/day)</option>
+      <option value="5.0">SA (5.0 hrs/day)</option>
+      <option value="4.5">TAS (4.5 hrs/day)</option>
+      <option value="6.0">NT (6.0 hrs/day)</option>
+      <option value="4.8">ACT (4.8 hrs/day)</option>
+    </select>
+  </div>
+  <div class="field"><label>Battery Days Autonomy</label><input type="number" id="solDays" placeholder="2" min="1" max="7"></div>
+  <div class="field"><label>System Voltage</label>
+    <select id="solV"><option value="12">12V</option><option value="24">24V</option><option value="48" selected>48V</option></select>
+  </div>
+  <button class="btn-calc" onclick="calcSol()">Calculate System</button>
+<div class="result-box eco" id="solR">
+    <div class="result-value eco" id="solRVal"></div>
+    <div class="result-label" id="solRLbl"></div>
+    <div class="result-grid" id="solRGrid"></div>
+  </div>
+
+</div>
+<div class="sidebar">
+  <div class="info-card"><h3>About</h3><p>Calculate recommended solar panels and battery bank for your Australian off-grid system.</p></div>
+  <div class="ad-rectangle"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1904958390525375" data-ad-format="auto" data-full-width-responsive="true"></ins><script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script></div>
+</div>
+</div>
+<div class="related-section"><h2>Related Tools</h2><div class="related-grid"><a href="/electricity-calculator.html" class="related-card">⚡ Electricity Calculator</a><a href="/rainwater-calculator.html" class="related-card">🌧️ Rainwater</a></div></div>
+</div></div>
+<script>function calcSol(){
+    var kwh=parseFloat(document.getElementById('solKwh').value)||0;
+    var sun=parseFloat(document.getElementById('solState').value);
+    var days=parseFloat(document.getElementById('solDays').value)||2;
+    var v=parseFloat(document.getElementById('solV').value);
+    var panels=Math.ceil(kwh/sun*1.25);
+    var ah=Math.ceil(kwh*1000*days/v/0.8);
+    var cost=panels*300+ah*v*0.5;
+    document.getElementById('solR').className='result-box eco visible';
+    document.getElementById('solRVal').textContent=panels+'×300W';
+    document.getElementById('solRLbl').textContent='recommended solar panels';
+    document.getElementById('solRGrid').innerHTML=
+      '<div class="result-item"><div class="result-item-label">Panels Needed</div><div class="result-item-value">'+panels+' × 300W</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Battery Bank</div><div class="result-item-value">'+ah+'Ah @ '+v+'V</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Battery kWh</div><div class="result-item-value">'+(ah*v/1000).toFixed(1)+' kWh</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Est. System Cost</div><div class="result-item-value">~$'+cost.toFixed(0).replace(/B(?=(d{3})+(?!d))/g,',')+'</div></div>';
+  }</script>
+<div id="site-footer"></div><div id="group-footer"></div><script src="/script.js"></script></body></html>

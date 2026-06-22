@@ -1,0 +1,76 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boiled Egg Calculator — Perfect Timing Every Time | MyCalcTools</title>
+<meta name="description" content="Get the perfect boiled egg every time. Choose your egg size and desired doneness for exact boiling time.">
+<link rel="canonical" href="https://www.mycalctools.net/boiled-egg-calculator.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="google-adsense-account" content="ca-pub-1904958390525375">
+<link rel="stylesheet" href="/style.css">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Boiled Egg Calculator \u2014 Perfect Timing Every Time", "url": "https://www.mycalctools.net/boiled-egg-calculator.html", "description": "Get the perfect boiled egg every time. Choose your egg size and desired doneness for exact boiling time.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Ascension Digital Group"}}</script>
+</head><body>
+<div id="brand-strip"></div>
+  <div id="cookie-consent-mount"></div><div id="nav"></div>
+
+
+<div class="tool-page"><div class="container">
+<nav class="breadcrumb"><a href="/index.html">Home</a> › <a href="/index.html#kitchen">Kitchen</a> › Boiled Egg Calculator</nav>
+<div class="tool-header">
+  <div class="tool-header-icon" style="background:rgba(251,146,60,0.12);border:1px solid rgba(251,146,60,0.3)">🥚</div>
+  <h1>Boiled Egg Calculator</h1>
+  <p>Calculate the perfect boiling time for your egg based on size and desired doneness.</p>
+  <div style="margin-top:10px"><span class="tag kitchen">By Egg Size</span><span class="tag kitchen">Altitude Adjusted</span></div>
+</div>
+<div class="tool-layout">
+<div class="calc-card">
+<div class="field"><label>Egg Size</label>
+    <select id="eggSize">
+      <option value="small">Small (under 53g)</option>
+      <option value="medium" selected>Medium (53–63g)</option>
+      <option value="large">Large (63–73g)</option>
+      <option value="xlarge">Extra Large (73g+)</option>
+    </select>
+  </div>
+  <div class="field"><label>Desired Doneness</label>
+    <select id="eggDone">
+      <option value="soft">Soft boiled (runny yolk)</option>
+      <option value="medium" selected>Medium (jammy yolk)</option>
+      <option value="hard">Hard boiled (firm yolk)</option>
+    </select>
+  </div>
+  <div class="field"><label>Starting Temperature</label>
+    <select id="eggTemp">
+      <option value="0" selected>Fridge cold (+1 min)</option>
+      <option value="-1">Room temperature</option>
+    </select>
+  </div>
+  <button class="btn-calc" onclick="calcEgg()">Get Timing</button>
+<div class="result-box kitchen" id="eggR">
+    <div class="result-value kitchen" id="eggRVal"></div>
+    <div class="result-label" id="eggRLbl"></div>
+    <div class="result-grid" id="eggRGrid"></div>
+  </div>
+
+</div>
+<div class="sidebar">
+  <div class="info-card"><h3>About</h3><p>Calculate the perfect boiling time for your egg based on size and desired doneness.</p></div>
+  <div class="ad-rectangle"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1904958390525375" data-ad-format="auto" data-full-width-responsive="true"></ins><script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script></div>
+</div>
+</div>
+<div class="related-section"><h2>Related Tools</h2><div class="related-grid"><a href="/airfryer-calculator.html" class="related-card">🍳 Air Fryer Calculator</a></div></div>
+</div></div>
+<script>var eggTimes={small:{soft:5,medium:7,hard:10},medium:{soft:6,medium:8,hard:11},large:{soft:7,medium:9,hard:12},xlarge:{soft:8,medium:10,hard:13}};
+  var eggTips={soft:'Place in boiling water gently. Transfer to ice water immediately.',medium:'Place in boiling water. Ice bath stops cooking and makes peeling easier.',hard:'Place in boiling water. Cold water bath after for easy peeling.'};
+  function calcEgg(){
+    var size=document.getElementById('eggSize').value;
+    var done=document.getElementById('eggDone').value;
+    var temp=parseInt(document.getElementById('eggTemp').value);
+    var t=eggTimes[size][done]+temp;
+    document.getElementById('eggR').className='result-box kitchen visible';
+    document.getElementById('eggRVal').textContent=t;
+    document.getElementById('eggRLbl').textContent='minutes';
+    document.getElementById('eggRGrid').innerHTML=
+      '<div class="result-item"><div class="result-item-label">Boiling Time</div><div class="result-item-value">'+t+' mins</div></div>'+
+      '<div class="result-item" style="grid-column:1/-1"><div class="result-item-label">Tip</div><div class="result-item-value" style="font-size:0.82rem;color:var(--muted)">'+eggTips[done]+'</div></div>';
+  }</script>
+<div id="site-footer"></div><div id="group-footer"></div><script src="/script.js"></script></body></html>

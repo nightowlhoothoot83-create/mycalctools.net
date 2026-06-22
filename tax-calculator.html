@@ -1,0 +1,85 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tax Calculator — Income Tax for AU, UK & US | MyCalcTools</title>
+<meta name="description" content="Calculate income tax and take-home pay for Australia, United Kingdom or United States. Instant results.">
+<link rel="canonical" href="https://www.mycalctools.net/tax-calculator.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="google-adsense-account" content="ca-pub-1904958390525375">
+<link rel="stylesheet" href="/style.css">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Tax Calculator \u2014 Income Tax for AU, UK & US", "url": "https://www.mycalctools.net/tax-calculator.html", "description": "Calculate income tax and take-home pay for Australia, United Kingdom or United States. Instant results.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Ascension Digital Group"}}</script>
+</head><body>
+<div id="brand-strip"></div>
+  <div id="cookie-consent-mount"></div><div id="nav"></div>
+
+
+<div class="tool-page"><div class="container">
+<nav class="breadcrumb"><a href="/index.html">Home</a> › <a href="/index.html#finance">Finance</a> › Tax Calculator</nav>
+<div class="tool-header">
+  <div class="tool-header-icon" style="background:rgba(96,165,250,0.12);border:1px solid rgba(96,165,250,0.3)">🧾</div>
+  <h1>Tax Calculator</h1>
+  <p>Calculate income tax and take-home pay for Australia, UK or US.</p>
+  <div style="margin-top:10px"><span class="tag finance">AU / UK / US</span><span class="tag finance">Medicare Levy</span></div>
+</div>
+<div class="tool-layout">
+<div class="calc-card">
+<div class="field"><label>Annual Income ($)</label><input type="number" id="txInc" placeholder="60000"></div>
+  <div class="field"><label>Country</label>
+    <select id="txCountry">
+      <option value="au">Australia (ATO 2024-25)</option>
+      <option value="uk">United Kingdom</option>
+      <option value="us">United States (Federal)</option>
+    </select>
+  </div>
+  <button class="btn-calc" onclick="calcTax()">Calculate</button>
+<div class="result-box finance" id="txR">
+    <div class="result-value finance" id="txRVal"></div>
+    <div class="result-label" id="txRLbl"></div>
+    <div class="result-grid" id="txRGrid"></div>
+  </div>
+
+</div>
+<div class="sidebar">
+  <div class="info-card"><h3>About</h3><p>Calculate income tax and take-home pay for Australia, UK or US.</p></div>
+  <div class="ad-rectangle"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1904958390525375" data-ad-format="auto" data-full-width-responsive="true"></ins><script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script></div>
+</div>
+</div>
+<div class="related-section"><h2>Related Tools</h2><div class="related-grid"><a href="/australian-tax-calculator.html" class="related-card">🦘 AU Tax Calculator</a><a href="/pay-calculator.html" class="related-card">💵 Pay Calculator</a></div></div>
+</div></div>
+<script>function fmt(n){return n.toFixed(0).replace(/B(?=(d{3})+(?!d))/g,',')}
+  function calcTax(){
+    var inc=parseFloat(document.getElementById('txInc').value)||0;
+    var c=document.getElementById('txCountry').value;
+    var tax=0,note='';
+    if(c==='au'){
+      if(inc>180000)tax=51667+(inc-180000)*0.45;
+      else if(inc>120000)tax=29467+(inc-120000)*0.37;
+      else if(inc>45000)tax=5092+(inc-45000)*0.325;
+      else if(inc>18200)tax=(inc-18200)*0.19;
+      var lito=inc<=37500?700:inc<=45000?700-(inc-37500)*0.05:inc<=66667?325-(inc-45000)*0.015:0;
+      tax=Math.max(0,tax-lito)+(inc<26000?0:inc*0.02);
+      note='Includes Medicare 2%';
+    } else if(c==='uk'){
+      if(inc>150000)tax=52460+(inc-150000)*0.45;
+      else if(inc>50270)tax=8236+(inc-50270)*0.4;
+      else if(inc>12570)tax=(inc-12570)*0.2;
+      note='UK Tax 2024-25';
+    } else {
+      if(inc>578125)tax=174238+(inc-578125)*0.37;
+      else if(inc>231250)tax=47105+(inc-231250)*0.35;
+      else if(inc>89075)tax=10294+(inc-89075)*0.22;
+      else if(inc>41775)tax=4807+(inc-41775)*0.22;
+      else if(inc>10275)tax=(inc-10275)*0.12;
+      note='US Federal only';
+    }
+    var th=inc-tax;
+    document.getElementById('txR').className='result-box finance visible';
+    document.getElementById('txRVal').textContent='$'+fmt(th);
+    document.getElementById('txRLbl').textContent='take-home ('+note+')';
+    document.getElementById('txRGrid').innerHTML=
+      '<div class="result-item"><div class="result-item-label">Gross Income</div><div class="result-item-value">$'+fmt(inc)+'</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Tax Payable</div><div class="result-item-value">$'+fmt(tax)+'</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Take-Home</div><div class="result-item-value">$'+fmt(th)+'</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Effective Rate</div><div class="result-item-value">'+(tax/inc*100).toFixed(1)+'%</div></div>';
+  }</script>
+<div id="site-footer"></div><div id="group-footer"></div><script src="/script.js"></script></body></html>

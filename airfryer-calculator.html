@@ -1,0 +1,76 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Air Fryer Calculator — Convert Oven Temps & Times | MyCalcTools</title>
+<meta name="description" content="Convert conventional oven temperature and cooking time to air fryer settings for any food type.">
+<link rel="canonical" href="https://www.mycalctools.net/airfryer-calculator.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="google-adsense-account" content="ca-pub-1904958390525375">
+<link rel="stylesheet" href="/style.css">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Air Fryer Calculator \u2014 Convert Oven Temps & Times", "url": "https://www.mycalctools.net/airfryer-calculator.html", "description": "Convert conventional oven temperature and cooking time to air fryer settings for any food type.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Ascension Digital Group"}}</script>
+</head><body>
+<div id="brand-strip"></div>
+  <div id="cookie-consent-mount"></div><div id="nav"></div>
+
+
+<div class="tool-page"><div class="container">
+<nav class="breadcrumb"><a href="/index.html">Home</a> › <a href="/index.html#kitchen">Kitchen</a> › Air Fryer Calculator</nav>
+<div class="tool-header">
+  <div class="tool-header-icon" style="background:rgba(251,146,60,0.12);border:1px solid rgba(251,146,60,0.3)">🍳</div>
+  <h1>Air Fryer Calculator</h1>
+  <p>Convert oven temperature and cooking time to air fryer settings for perfect results.</p>
+  <div style="margin-top:10px"><span class="tag kitchen">Temp Conversion</span><span class="tag kitchen">Cooking Times</span></div>
+</div>
+<div class="tool-layout">
+<div class="calc-card">
+<div class="toggle-row">
+    <button class="toggle-btn active" id="afCBtn" onclick="afUnit('c')">Celsius</button>
+    <button class="toggle-btn" id="afFBtn" onclick="afUnit('f')">Fahrenheit</button>
+  </div>
+  <div class="field"><label>Oven Temperature</label><input type="number" id="afTemp" placeholder="200"></div>
+  <div class="field"><label>Oven Cooking Time (mins)</label><input type="number" id="afTime" placeholder="30" min="1"></div>
+  <div class="field"><label>Food Type</label>
+    <select id="afFood">
+      <option value="0.9,0.75">Chicken pieces</option>
+      <option value="0.9,0.8">Vegetables</option>
+      <option value="0.85,0.75">Fish / Seafood</option>
+      <option value="0.9,0.8">Chips / Fries</option>
+      <option value="0.85,0.7">Meat (beef/lamb)</option>
+      <option value="0.9,0.8">Baked goods</option>
+      <option value="0.9,0.75">Frozen foods</option>
+    </select>
+  </div>
+  <button class="btn-calc" onclick="calcAF()">Convert</button>
+<div class="result-box kitchen" id="afR">
+    <div class="result-value kitchen" id="afRVal"></div>
+    <div class="result-label" id="afRLbl"></div>
+    <div class="result-grid" id="afRGrid"></div>
+  </div>
+
+</div>
+<div class="sidebar">
+  <div class="info-card"><h3>About</h3><p>Convert oven temperature and cooking time to air fryer settings for perfect results.</p></div>
+  <div class="ad-rectangle"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1904958390525375" data-ad-format="auto" data-full-width-responsive="true"></ins><script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script></div>
+</div>
+</div>
+<div class="related-section"><h2>Related Tools</h2><div class="related-grid"><a href="/boiled-egg-calculator.html" class="related-card">🥚 Boiled Egg Calculator</a></div></div>
+</div></div>
+<script>var _afU='c';
+  function afUnit(u){_afU=u;document.getElementById('afCBtn').className='toggle-btn'+(u==='c'?' active':'');document.getElementById('afFBtn').className='toggle-btn'+(u==='f'?' active':'');}
+  function calcAF(){
+    var temp=parseFloat(document.getElementById('afTemp').value)||0;
+    var time=parseFloat(document.getElementById('afTime').value)||0;
+    var food=document.getElementById('afFood').value.split(',');
+    var afTemp=Math.round(temp*parseFloat(food[0]));
+    var afTime=Math.round(time*parseFloat(food[1]));
+    document.getElementById('afR').className='result-box kitchen visible';
+    document.getElementById('afRVal').textContent=afTemp+(_afU==='c'?'°C':'°F');
+    document.getElementById('afRLbl').textContent='air fryer temperature';
+    document.getElementById('afRGrid').innerHTML=
+      '<div class="result-item"><div class="result-item-label">Air Fryer Temp</div><div class="result-item-value">'+afTemp+(_afU==='c'?'°C':'°F')+'</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Air Fryer Time</div><div class="result-item-value">'+afTime+' mins</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Oven Temp</div><div class="result-item-value">'+temp+(_afU==='c'?'°C':'°F')+'</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Oven Time</div><div class="result-item-value">'+time+' mins</div></div>'+
+      '<div class="result-item" style="grid-column:1/-1"><div class="result-item-label">Tip</div><div class="result-item-value" style="font-size:0.82rem;color:var(--muted)">Flip or shake halfway through. Check a few minutes early as air fryers vary.</div></div>';
+  }</script>
+<div id="site-footer"></div><div id="group-footer"></div><script src="/script.js"></script></body></html>

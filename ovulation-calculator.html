@@ -1,0 +1,60 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ovulation Calculator — Fertile Window & Cycle Tracker | MyCalcTools</title>
+<meta name="description" content="Calculate your ovulation date and fertile window based on your last period start date and cycle length.">
+<link rel="canonical" href="https://www.mycalctools.net/ovulation-calculator.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="google-adsense-account" content="ca-pub-1904958390525375">
+<link rel="stylesheet" href="/style.css">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Ovulation Calculator \u2014 Fertile Window & Cycle Tracker", "url": "https://www.mycalctools.net/ovulation-calculator.html", "description": "Calculate your ovulation date and fertile window based on your last period start date and cycle length.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Ascension Digital Group"}}</script>
+</head><body>
+<div id="brand-strip"></div>
+  <div id="cookie-consent-mount"></div><div id="nav"></div>
+
+
+<div class="tool-page"><div class="container">
+<nav class="breadcrumb"><a href="/index.html">Home</a> › <a href="/index.html#health">Health</a> › Ovulation Calculator</nav>
+<div class="tool-header">
+  <div class="tool-header-icon" style="background:rgba(52,211,153,0.12);border:1px solid rgba(52,211,153,0.3)">🌸</div>
+  <h1>Ovulation Calculator</h1>
+  <p>Calculate your next ovulation date, fertile window and next period based on your cycle.</p>
+  <div style="margin-top:10px"><span class="tag health">Fertile Window</span><span class="tag health">Cycle Tracking</span></div>
+</div>
+<div class="tool-layout">
+<div class="calc-card">
+<div class="field"><label>Last Period Start Date</label><input type="date" id="ovLMP"></div>
+  <div class="field"><label>Cycle Length (days)</label><input type="number" id="ovCycle" value="28" min="20" max="45"></div>
+  <button class="btn-calc" onclick="calcOv()">Calculate</button>
+<div class="result-box health" id="ovR">
+    <div class="result-value health" id="ovRVal"></div>
+    <div class="result-label" id="ovRLbl"></div>
+    <div class="result-grid" id="ovRGrid"></div>
+  </div>
+
+</div>
+<div class="sidebar">
+  <div class="info-card"><h3>About</h3><p>Calculate your next ovulation date, fertile window and next period based on your cycle.</p></div>
+  <div class="ad-rectangle"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1904958390525375" data-ad-format="auto" data-full-width-responsive="true"></ins><script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script></div>
+</div>
+</div>
+<div class="related-section"><h2>Related Tools</h2><div class="related-grid"><a href="/period-calculator.html" class="related-card">📅 Period Calculator</a><a href="/due-date-calculator.html" class="related-card">👶 Due Date</a></div></div>
+</div></div>
+<script>document.addEventListener('DOMContentLoaded',function(){var d=new Date();d.setDate(d.getDate()-14);document.getElementById('ovLMP').value=d.toISOString().split('T')[0];});
+  function calcOv(){
+    var lmp=new Date(document.getElementById('ovLMP').value);
+    var cycle=parseFloat(document.getElementById('ovCycle').value)||28;
+    var ov=new Date(lmp);ov.setDate(lmp.getDate()+cycle-14);
+    var fs=new Date(ov);fs.setDate(ov.getDate()-5);
+    var fe=new Date(ov);fe.setDate(ov.getDate()+1);
+    var next=new Date(lmp);next.setDate(lmp.getDate()+cycle);
+    var o={day:'numeric',month:'short',year:'numeric'};
+    document.getElementById('ovR').className='result-box health visible';
+    document.getElementById('ovRVal').textContent=ov.toLocaleDateString('en-AU',{day:'numeric',month:'short'});
+    document.getElementById('ovRLbl').textContent='Estimated Ovulation Date';
+    document.getElementById('ovRGrid').innerHTML=
+      '<div class="result-item"><div class="result-item-label">Ovulation Date</div><div class="result-item-value">'+ov.toLocaleDateString('en-AU',o)+'</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Fertile Window</div><div class="result-item-value">'+fs.toLocaleDateString('en-AU',{day:'numeric',month:'short'})+' – '+fe.toLocaleDateString('en-AU',{day:'numeric',month:'short'})+'</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Next Period</div><div class="result-item-value">'+next.toLocaleDateString('en-AU',o)+'</div></div>';
+  }</script>
+<div id="site-footer"></div><div id="group-footer"></div><script src="/script.js"></script></body></html>

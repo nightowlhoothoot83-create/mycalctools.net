@@ -1,0 +1,58 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Calorie Calculator — Daily Intake for Weight Loss or Gain | MyCalcTools</title><meta name="description" content="Calculate your daily calorie needs using the Mifflin-St Jeor formula. Get your BMR, TDEE, and macro split for your goal."><link rel="canonical" href="https://www.mycalctools.net/calorie-calculator.html"><meta name="robots" content="index, follow, max-image-preview:large"><meta property="og:title" content="Calorie Calculator — Daily Intake for Weight Loss or Gain"><meta property="og:description" content="Calculate your daily calorie needs using the Mifflin-St Jeor formula. Get your BMR, TDEE, and macro split for your goal."><meta property="og:url" content="https://www.mycalctools.net/calorie-calculator.html"><meta property="og:type" content="website"><meta property="og:site_name" content="MyCalcTools"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#080810"><meta name="google-adsense-account" content="ca-pub-1904958390525375"><link rel="stylesheet" href="/style.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Calorie Calculator \u2014 Daily Intake for Weight Loss or Gain", "url": "https://www.mycalctools.net/calorie-calculator.html", "description": "Calculate your daily calorie needs using the Mifflin-St Jeor formula. Get your BMR, TDEE, and macro split for your goal.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Ascension Digital Group"}}</script>
+</head><body><div id="brand-strip"></div>
+  <div id="cookie-consent-mount"></div><div id="nav"></div><div class="tool-page"><div class="container"><nav class="breadcrumb"><a href="/index.html">Home</a><span class="breadcrumb-sep">&#8250;</span><a href="/index.html#health">Health</a><span class="breadcrumb-sep">&#8250;</span><span>Calorie Calculator</span></nav><div class="tool-header"><div class="tool-header-icon" style="background:rgba(52,211,153,0.12);border:1px solid rgba(52,211,153,0.3)">&#128293;</div><h1>Calorie Calculator</h1><p>Calculate your daily calorie needs and macro split using the Mifflin-St Jeor formula.</p><div style="margin-top:10px"><span class="tag health">Mifflin-St Jeor</span><span class="tag health">Macros Included</span></div></div><div class="tool-layout"><div class="calc-card"><div class="field"><label>Age</label><input type="number" id="calAge" placeholder="30" min="15" max="100"></div>
+    <div class="toggle-row">
+      <button class="toggle-btn active" id="calMaleBtn" onclick="calSetSex('male')">Male</button>
+      <button class="toggle-btn" id="calFemaleBtn" onclick="calSetSex('female')">Female</button>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+      <div class="field"><label>Weight (kg)</label><input type="number" id="calWt" placeholder="70"></div>
+      <div class="field"><label>Height (cm)</label><input type="number" id="calHt" placeholder="175"></div>
+    </div>
+    <div class="field"><label>Activity Level</label>
+      <select id="calAct">
+        <option value="1.2">Sedentary (desk job, no exercise)</option>
+        <option value="1.375">Lightly active (1-3 days/week)</option>
+        <option value="1.55" selected>Moderately active (3-5 days/week)</option>
+        <option value="1.725">Very active (6-7 days/week)</option>
+        <option value="1.9">Extra active (physical job + training)</option>
+      </select>
+    </div>
+    <div class="field"><label>Goal</label>
+      <select id="calGoal">
+        <option value="-500">Lose weight (500 cal deficit)</option>
+        <option value="0" selected>Maintain weight</option>
+        <option value="300">Gain muscle (300 cal surplus)</option>
+        <option value="500">Gain weight (500 cal surplus)</option>
+      </select>
+    </div>
+    <button class="btn-calc" onclick="calcCalories()">Calculate Calories</button>
+    <div class="result-box health" id="calResult">
+      <div class="result-value health" id="calTarget"></div>
+      <div class="result-label">calories per day</div>
+      <div class="result-grid" id="calGrid"></div>
+    </div></div><div class="sidebar"><div class="info-card"><h3>About this tool</h3><p>Calculate your daily calorie needs and macro split using the Mifflin-St Jeor formula.</p></div><div class="ad-rectangle"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1904958390525375" data-ad-format="auto" data-full-width-responsive="true"></ins><script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script></div></div></div><div class="related-section"><h2>Related Tools</h2><div class="related-grid"><a href="/bmi-calculator.html" class="related-card"><span>&#9878;</span>BMI Calculator</a><a href="/water-intake-calculator.html" class="related-card"><span>&#128167;</span>Water Intake</a><a href="/sleep-cycle-calculator.html" class="related-card"><span>&#128208;</span>Sleep Cycle</a></div></div><div class="faq-section"><h2>Frequently Asked Questions</h2><div class="faq-item"><button class="faq-question">What is BMR? <span class="faq-chevron">&#9660;</span></button><div class="faq-answer"><p>Basal Metabolic Rate is the calories your body burns at complete rest. It is the minimum energy needed to keep basic functions running.</p></div></div><div class="faq-item"><button class="faq-question">What formula is used? <span class="faq-chevron">&#9660;</span></button><div class="faq-answer"><p>This calculator uses the Mifflin-St Jeor equation, the most accurate formula for most adults according to the American Dietetic Association.</p></div></div><div class="faq-item"><button class="faq-question">What are macros? <span class="faq-chevron">&#9660;</span></button><div class="faq-answer"><p>Macronutrients are protein, carbohydrates and fat. The macro split shown is a balanced starting point — adjust based on your personal goals.</p></div></div></div></div></div><script>var calSex='male';
+    function calSetSex(s){calSex=s;document.getElementById('calMaleBtn').className='toggle-btn'+(s==='male'?' active':'');document.getElementById('calFemaleBtn').className='toggle-btn'+(s==='female'?' active':'');}
+    function calcCalories(){
+      var age=parseFloat(document.getElementById('calAge').value);
+      var wt=parseFloat(document.getElementById('calWt').value);
+      var ht=parseFloat(document.getElementById('calHt').value);
+      var act=parseFloat(document.getElementById('calAct').value);
+      var goal=parseFloat(document.getElementById('calGoal').value);
+      if(!age||!wt||!ht) return;
+      var bmr=calSex==='male'?(10*wt+6.25*ht-5*age+5):(10*wt+6.25*ht-5*age-161);
+      var tdee=bmr*act;
+      var target=tdee+goal;
+      var protein=Math.round(wt*2.2);
+      var fat=Math.round(target*0.25/9);
+      var carbs=Math.round((target-protein*4-fat*9)/4);
+      document.getElementById('calResult').className='result-box health visible';
+      document.getElementById('calTarget').textContent=Math.round(target).toLocaleString();
+      document.getElementById('calGrid').innerHTML=
+        '<div class="result-item"><div class="result-item-label">BMR</div><div class="result-item-value">'+Math.round(bmr)+' cal</div></div>'+
+        '<div class="result-item"><div class="result-item-label">TDEE</div><div class="result-item-value">'+Math.round(tdee)+' cal</div></div>'+
+        '<div class="result-item"><div class="result-item-label">Protein</div><div class="result-item-value">'+protein+'g</div></div>'+
+        '<div class="result-item"><div class="result-item-label">Carbs</div><div class="result-item-value">'+carbs+'g</div></div>'+
+        '<div class="result-item"><div class="result-item-label">Fat</div><div class="result-item-value">'+fat+'g</div></div>'+
+        '<div class="result-item"><div class="result-item-label">Goal</div><div class="result-item-value">'+(goal>0?'+':'')+goal+' cal</div></div>';
+    }</script><div id="site-footer"></div><div id="group-footer"></div><script src="/script.js"></script></body></html>

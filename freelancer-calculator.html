@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Freelancer Calculator — Hourly Rate with AU Tax & Super | MyCalcTools</title>
+<meta name="description" content="Calculate your minimum freelance hourly rate including Australian tax and superannuation obligations.">
+<link rel="canonical" href="https://www.mycalctools.net/freelancer-calculator.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="google-adsense-account" content="ca-pub-1904958390525375">
+<link rel="stylesheet" href="/style.css">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Freelancer Calculator \u2014 Hourly Rate with AU Tax & Super", "url": "https://www.mycalctools.net/freelancer-calculator.html", "description": "Calculate your minimum freelance hourly rate including Australian tax and superannuation obligations.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Ascension Digital Group"}}</script>
+</head><body>
+<div id="brand-strip"></div>
+  <div id="cookie-consent-mount"></div><div id="nav"></div>
+
+
+<div class="tool-page"><div class="container">
+<nav class="breadcrumb"><a href="/index.html">Home</a> › <a href="/index.html#business">Business</a> › Freelancer Calculator</nav>
+<div class="tool-header">
+  <div class="tool-header-icon" style="background:rgba(251,191,36,0.12);border:1px solid rgba(251,191,36,0.3)">💼</div>
+  <h1>Freelancer Calculator</h1>
+  <p>Calculate your minimum and recommended freelance rate accounting for AU tax, super and expenses.</p>
+  <div style="margin-top:10px"><span class="tag business">AU Tax Included</span><span class="tag business">Super + Expenses</span></div>
+</div>
+<div class="tool-layout">
+<div class="calc-card">
+<div class="field"><label>Desired Annual Income ($)</label><input type="number" id="frInc" placeholder="80000"></div>
+  <div class="field"><label>Billable Hours per Week</label><input type="number" id="frHrs" placeholder="30" min="1" max="60"></div>
+  <div class="field"><label>Weeks Holiday per Year</label><input type="number" id="frHol" placeholder="4" min="0" max="26"></div>
+  <div class="field"><label>Annual Business Expenses ($)</label><input type="number" id="frExp" placeholder="5000"></div>
+  <div class="field"><label>Super Rate (%)</label><input type="number" id="frSup" placeholder="11.5" step="0.5"></div>
+  <button class="btn-calc" onclick="calcFR()">Calculate Rate</button>
+<div class="result-box business" id="frR">
+    <div class="result-value business" id="frRVal"></div>
+    <div class="result-label" id="frRLbl"></div>
+    <div class="result-grid" id="frRGrid"></div>
+  </div>
+
+</div>
+<div class="sidebar">
+  <div class="info-card"><h3>About</h3><p>Calculate your minimum and recommended freelance rate accounting for AU tax, super and expenses.</p></div>
+  <div class="ad-rectangle"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1904958390525375" data-ad-format="auto" data-full-width-responsive="true"></ins><script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script></div>
+</div>
+</div>
+<div class="related-section"><h2>Related Tools</h2><div class="related-grid"><a href="/pay-calculator.html" class="related-card">💵 Pay Calculator</a><a href="/freelancer-rate-calculator.html" class="related-card">💹 Rate Calculator</a></div></div>
+</div></div>
+<script>function calcFR(){
+    var inc=parseFloat(document.getElementById('frInc').value)||0;
+    var hrs=parseFloat(document.getElementById('frHrs').value)||30;
+    var hol=parseFloat(document.getElementById('frHol').value)||4;
+    var exp=parseFloat(document.getElementById('frExp').value)||0;
+    var sup=parseFloat(document.getElementById('frSup').value)||11.5;
+    var workWeeks=52-hol;var billable=hrs*workWeeks;
+    var gross=(inc+exp)*(1+sup/100);
+    var min=gross/billable;var rec=min*1.2;
+    document.getElementById('frR').className='result-box business visible';
+    document.getElementById('frRVal').textContent='$'+rec.toFixed(2);
+    document.getElementById('frRLbl').textContent='recommended hourly rate';
+    document.getElementById('frRGrid').innerHTML=
+      '<div class="result-item"><div class="result-item-label">Min Rate</div><div class="result-item-value">$'+min.toFixed(2)+'/hr</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Rec Rate (+20%)</div><div class="result-item-value">$'+rec.toFixed(2)+'/hr</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Day Rate (8hr)</div><div class="result-item-value">$'+(rec*8).toFixed(0)+'</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Billable Hrs/yr</div><div class="result-item-value">'+billable+'</div></div>';
+  }</script>
+<div id="site-footer"></div><div id="group-footer"></div><script src="/script.js"></script></body></html>

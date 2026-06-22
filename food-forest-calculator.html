@@ -1,0 +1,72 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Food Forest Yield Estimator — Plant Spacing & Annual Harvest | MyCalcTools</title>
+<meta name="description" content="Estimate annual yield from your food forest. Calculate plant numbers and expected annual harvest by climate zone.">
+<link rel="canonical" href="https://www.mycalctools.net/food-forest-calculator.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="google-adsense-account" content="ca-pub-1904958390525375">
+<link rel="stylesheet" href="/style.css">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Food Forest Yield Estimator \u2014 Plant Spacing & Annual Harvest", "url": "https://www.mycalctools.net/food-forest-calculator.html", "description": "Estimate annual yield from your food forest. Calculate plant numbers and expected annual harvest by climate zone.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Ascension Digital Group"}}</script>
+</head><body>
+<div id="brand-strip"></div>
+  <div id="cookie-consent-mount"></div><div id="nav"></div>
+
+
+<div class="tool-page"><div class="container">
+<nav class="breadcrumb"><a href="/index.html">Home</a> › <a href="/index.html#eco">Eco</a> › Food Forest Yield Estimator</nav>
+<div class="tool-header">
+  <div class="tool-header-icon" style="background:rgba(134,239,172,0.12);border:1px solid rgba(134,239,172,0.3)">🌳</div>
+  <h1>Food Forest Yield Estimator</h1>
+  <p>Estimate food forest yield, plant count and annual harvest based on area and climate zone.</p>
+  <div style="margin-top:10px"><span class="tag eco">Plant Spacing</span><span class="tag eco">Annual Yield Estimate</span></div>
+</div>
+<div class="tool-layout">
+<div class="calc-card">
+<div class="field"><label>Total Area (m²)</label><input type="number" id="ffArea" placeholder="200"></div>
+  <div class="field"><label>Climate Zone</label>
+    <select id="ffClimate">
+      <option value="1.4">Tropical</option>
+      <option value="1.2">Subtropical</option>
+      <option value="1.0" selected>Temperate</option>
+      <option value="0.7">Arid</option>
+    </select>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px">
+    <label style="display:flex;align-items:center;gap:8px;font-size:0.9rem;color:var(--eco)"><input type="checkbox" id="ffFruit" checked style="width:auto"> 🍎 Fruit Trees</label>
+    <label style="display:flex;align-items:center;gap:8px;font-size:0.9rem;color:var(--eco)"><input type="checkbox" id="ffBerry" checked style="width:auto"> 🫐 Berry Shrubs</label>
+    <label style="display:flex;align-items:center;gap:8px;font-size:0.9rem;color:var(--eco)"><input type="checkbox" id="ffHerb" checked style="width:auto"> 🌿 Herbs</label>
+    <label style="display:flex;align-items:center;gap:8px;font-size:0.9rem;color:var(--eco)"><input type="checkbox" id="ffGround" style="width:auto"> 🌱 Groundcovers</label>
+  </div>
+  <button class="btn-calc" onclick="calcFF()">Estimate Yield</button>
+<div class="result-box eco" id="ffR">
+    <div class="result-value eco" id="ffRVal"></div>
+    <div class="result-label" id="ffRLbl"></div>
+    <div class="result-grid" id="ffRGrid"></div>
+  </div>
+
+</div>
+<div class="sidebar">
+  <div class="info-card"><h3>About</h3><p>Estimate food forest yield, plant count and annual harvest based on area and climate zone.</p></div>
+  <div class="ad-rectangle"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1904958390525375" data-ad-format="auto" data-full-width-responsive="true"></ins><script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script></div>
+</div>
+</div>
+<div class="related-section"><h2>Related Tools</h2><div class="related-grid"><a href="/rainwater-calculator.html" class="related-card">🌧️ Rainwater</a><a href="/solar-calculator.html" class="related-card">☀️ Solar Calculator</a></div></div>
+</div></div>
+<script>function fmt(n){return n.toFixed(0).replace(/B(?=(d{3})+(?!d))/g,',')}
+  function calcFF(){
+    var area=parseFloat(document.getElementById('ffArea').value)||0;
+    var mult=parseFloat(document.getElementById('ffClimate').value);
+    var plans=[];
+    if(document.getElementById('ffFruit').checked) plans.push({name:'Fruit Trees',spacing:25,yield:50});
+    if(document.getElementById('ffBerry').checked) plans.push({name:'Berry Shrubs',spacing:4,yield:4});
+    if(document.getElementById('ffHerb').checked) plans.push({name:'Herbs',spacing:0.5,yield:0.5});
+    if(document.getElementById('ffGround').checked) plans.push({name:'Groundcovers',spacing:0.25,yield:0.2});
+    var total=0;var rows='';
+    plans.forEach(function(p){var n=Math.floor(area*0.8/plans.length/p.spacing);var y=n*p.yield*mult;total+=y;rows+='<div class="result-item"><div class="result-item-label">'+p.name+'</div><div class="result-item-value">'+n+' plants / '+y.toFixed(0)+'kg</div></div>';});
+    document.getElementById('ffR').className='result-box eco visible';
+    document.getElementById('ffRVal').textContent=fmt(total);
+    document.getElementById('ffRLbl').textContent='kg estimated annual yield';
+    document.getElementById('ffRGrid').innerHTML=rows;
+  }</script>
+<div id="site-footer"></div><div id="group-footer"></div><script src="/script.js"></script></body></html>

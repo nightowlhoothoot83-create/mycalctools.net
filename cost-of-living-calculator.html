@@ -1,0 +1,68 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cost of Living Calculator — Weekly Budget Planner for Australians | MyCalcTools</title>
+<meta name="description" content="Plan your weekly budget across all expense categories and find your surplus or deficit. AU living costs.">
+<link rel="canonical" href="https://www.mycalctools.net/cost-of-living-calculator.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="google-adsense-account" content="ca-pub-1904958390525375">
+<link rel="stylesheet" href="/style.css">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Cost of Living Calculator \u2014 Weekly Budget Planner for Australians", "url": "https://www.mycalctools.net/cost-of-living-calculator.html", "description": "Plan your weekly budget across all expense categories and find your surplus or deficit. AU living costs.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Ascension Digital Group"}}</script>
+</head><body>
+<div id="brand-strip"></div>
+  <div id="cookie-consent-mount"></div><div id="nav"></div>
+
+
+<div class="tool-page"><div class="container">
+<nav class="breadcrumb"><a href="/index.html">Home</a> › <a href="/index.html#finance">Finance</a> › Cost of Living Calculator</nav>
+<div class="tool-header">
+  <div class="tool-header-icon" style="background:rgba(96,165,250,0.12);border:1px solid rgba(96,165,250,0.3)">🛒</div>
+  <h1>Cost of Living Calculator</h1>
+  <p>Plan your weekly budget and identify surplus or deficit across all expense categories.</p>
+  <div style="margin-top:10px"><span class="tag finance">Budget Planner</span><span class="tag finance">AU Living Costs</span></div>
+</div>
+<div class="tool-layout">
+<div class="calc-card">
+<div class="field"><label>Weekly Income ($)</label><input type="number" id="colInc" placeholder="1500"></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+    <div class="field"><label>Rent/Mortgage</label><input type="number" id="colRent" placeholder="450"></div>
+    <div class="field"><label>Groceries</label><input type="number" id="colGroc" placeholder="150"></div>
+    <div class="field"><label>Transport</label><input type="number" id="colTrans" placeholder="80"></div>
+    <div class="field"><label>Utilities</label><input type="number" id="colUtil" placeholder="50"></div>
+    <div class="field"><label>Insurance</label><input type="number" id="colIns" placeholder="40"></div>
+    <div class="field"><label>Subscriptions</label><input type="number" id="colSubs" placeholder="30"></div>
+    <div class="field"><label>Dining Out</label><input type="number" id="colDine" placeholder="60"></div>
+    <div class="field"><label>Health</label><input type="number" id="colHlt" placeholder="30"></div>
+  </div>
+  <button class="btn-calc" onclick="calcCOL()">Calculate Budget</button>
+<div class="result-box finance" id="colR">
+    <div class="result-value finance" id="colRVal"></div>
+    <div class="result-label" id="colRLbl"></div>
+    <div class="result-grid" id="colRGrid"></div>
+  </div>
+
+</div>
+<div class="sidebar">
+  <div class="info-card"><h3>About</h3><p>Plan your weekly budget and identify surplus or deficit across all expense categories.</p></div>
+  <div class="ad-rectangle"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1904958390525375" data-ad-format="auto" data-full-width-responsive="true"></ins><script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script></div>
+</div>
+</div>
+<div class="related-section"><h2>Related Tools</h2><div class="related-grid"><a href="/rent-calculator.html" class="related-card">🏘️ Rent Calculator</a><a href="/australian-tax-calculator.html" class="related-card">🦘 AU Tax</a></div></div>
+</div></div>
+<script>function fmt(n){return n.toFixed(0).replace(/B(?=(d{3})+(?!d))/g,',')}
+  function calcCOL(){
+    var inc=parseFloat(document.getElementById('colInc').value)||0;
+    var ids=['colRent','colGroc','colTrans','colUtil','colIns','colSubs','colDine','colHlt'];
+    var total=0;ids.forEach(function(id){total+=(parseFloat(document.getElementById(id).value)||0);});
+    var surplus=inc-total;
+    var rentRatio=(parseFloat(document.getElementById('colRent').value)||0)/inc*100;
+    document.getElementById('colR').className='result-box finance visible';
+    document.getElementById('colRVal').textContent=(surplus>=0?'$'+fmt(surplus):'-$'+fmt(Math.abs(surplus)));
+    document.getElementById('colRLbl').textContent=surplus>=0?'weekly surplus':'⚠ weekly deficit';
+    document.getElementById('colRGrid').innerHTML=
+      '<div class="result-item"><div class="result-item-label">Total Expenses</div><div class="result-item-value">$'+fmt(total)+'</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Weekly Income</div><div class="result-item-value">$'+fmt(inc)+'</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Rent % of Income</div><div class="result-item-value" style="color:'+(rentRatio>30?'var(--lifestyle)':'var(--health)')+'">'+rentRatio.toFixed(0)+'%</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Monthly Surplus</div><div class="result-item-value">$'+fmt(surplus*52/12)+'</div></div>';
+  }</script>
+<div id="site-footer"></div><div id="group-footer"></div><script src="/script.js"></script></body></html>

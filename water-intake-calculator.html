@@ -1,0 +1,80 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Water Intake Calculator — Daily Hydration Target | MyCalcTools</title>
+<meta name="description" content="Calculate your daily water intake based on weight, activity level and climate. Get your target in ml and glasses.">
+<link rel="canonical" href="https://www.mycalctools.net/water-intake-calculator.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="google-adsense-account" content="ca-pub-1904958390525375">
+<link rel="stylesheet" href="/style.css">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Water Intake Calculator \u2014 Daily Hydration Target", "url": "https://www.mycalctools.net/water-intake-calculator.html", "description": "Calculate your daily water intake based on weight, activity level and climate. Get your target in ml and glasses.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Ascension Digital Group"}}</script>
+</head><body>
+<div id="brand-strip"></div>
+  <div id="cookie-consent-mount"></div><div id="nav"></div>
+
+
+<div class="tool-page"><div class="container">
+<nav class="breadcrumb"><a href="/index.html">Home</a> › <a href="/index.html#health">Health</a> › Water Intake Calculator</nav>
+<div class="tool-header">
+  <div class="tool-header-icon" style="background:rgba(52,211,153,0.12);border:1px solid rgba(52,211,153,0.3)">💧</div>
+  <h1>Water Intake Calculator</h1>
+  <p>Find your daily water intake target based on weight, activity level and climate.</p>
+  <div style="margin-top:10px"><span class="tag health">By Weight</span><span class="tag health">Activity Level</span></div>
+</div>
+<div class="tool-layout">
+<div class="calc-card">
+<div class="toggle-row">
+    <button class="toggle-btn active" id="wtKgBtn" onclick="wtSetUnit('kg')">Kilograms</button>
+    <button class="toggle-btn" id="wtLbBtn" onclick="wtSetUnit('lbs')">Pounds</button>
+  </div>
+  <div class="field"><label>Weight</label><input type="number" id="wtWeight" placeholder="70"></div>
+  <div class="field"><label>Activity Level</label>
+    <select id="wtAct">
+      <option value="1">Sedentary</option>
+      <option value="1.2" selected>Moderately active</option>
+      <option value="1.4">Very active</option>
+      <option value="1.6">Athlete / Heavy exercise</option>
+    </select>
+  </div>
+  <div class="field"><label>Climate</label>
+    <select id="wtClimate">
+      <option value="1" selected>Temperate</option>
+      <option value="1.1">Hot / Humid</option>
+      <option value="0.95">Cool / Cold</option>
+    </select>
+  </div>
+  <button class="btn-calc" onclick="calcWater()">Calculate</button>
+<div class="result-box health" id="wtR">
+    <div class="result-value health" id="wtRVal"></div>
+    <div class="result-label" id="wtRLbl"></div>
+    <div class="result-grid" id="wtRGrid"></div>
+  </div>
+
+</div>
+<div class="sidebar">
+  <div class="info-card"><h3>About</h3><p>Find your daily water intake target based on weight, activity level and climate.</p></div>
+  <div class="ad-rectangle"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1904958390525375" data-ad-format="auto" data-full-width-responsive="true"></ins><script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script></div>
+</div>
+</div>
+<div class="related-section"><h2>Related Tools</h2><div class="related-grid"><a href="/calorie-calculator.html" class="related-card">🔥 Calorie Calculator</a><a href="/bmi-calculator.html" class="related-card">⚖️ BMI Calculator</a></div></div>
+</div></div>
+<script>var wtUnit='kg';
+  function wtSetUnit(u){wtUnit=u;document.getElementById('wtKgBtn').className='toggle-btn'+(u==='kg'?' active':'');document.getElementById('wtLbBtn').className='toggle-btn'+(u==='lbs'?' active':'');}
+  function calcWater(){
+    var w=parseFloat(document.getElementById('wtWeight').value)||70;
+    if(wtUnit==='lbs') w=w*0.453592;
+    var act=parseFloat(document.getElementById('wtAct').value);
+    var clim=parseFloat(document.getElementById('wtClimate').value);
+    var ml=Math.round(w*35*act*clim);
+    var glasses=Math.round(ml/250);
+    var bottles=Math.round(ml/500);
+    document.getElementById('wtR').className='result-box health visible';
+    document.getElementById('wtRVal').textContent=ml.toLocaleString();
+    document.getElementById('wtRLbl').textContent='ml per day';
+    document.getElementById('wtRGrid').innerHTML=
+      '<div class="result-item"><div class="result-item-label">Daily Target</div><div class="result-item-value">'+ml+' ml</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Glasses (250ml)</div><div class="result-item-value">'+glasses+'</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Bottles (500ml)</div><div class="result-item-value">'+bottles+'</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Litres</div><div class="result-item-value">'+(ml/1000).toFixed(2)+' L</div></div>';
+  }</script>
+<div id="site-footer"></div><div id="group-footer"></div><script src="/script.js"></script></body></html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Australian Tax Calculator — ATO FY2024-25 | MyCalcTools</title>
+<meta name="description" content="Calculate your Australian income tax, Medicare levy, LITO offset and take-home pay for FY2024-25. ATO-aligned calculator.">
+<link rel="canonical" href="https://www.mycalctools.net/australian-tax-calculator.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="google-adsense-account" content="ca-pub-1904958390525375">
+<link rel="stylesheet" href="/style.css">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Australian Tax Calculator \u2014 ATO FY2024-25", "url": "https://www.mycalctools.net/australian-tax-calculator.html", "description": "Calculate your Australian income tax, Medicare levy, LITO offset and take-home pay for FY2024-25. ATO-aligned calculator.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Ascension Digital Group"}}</script>
+</head><body>
+<div id="brand-strip"></div>
+  <div id="cookie-consent-mount"></div><div id="nav"></div>
+
+<div class="finance-banner container" style="margin:20px auto;max-width:1200px">
+  <h3>🏦 Looking for tax-smart finance options?</h3>
+  <p>Our broker network of 75+ lenders can help you structure your finances efficiently.</p>
+  <button class="btn-finance" onclick="window.location.href='<!-- INSERT BROKER LEAD FORM LINK -->'">Free Finance Consultation</button>
+  <small>Referral partnership · Australian credit licence</small>
+</div>
+<div class="tool-page"><div class="container">
+<nav class="breadcrumb"><a href="/index.html">Home</a> › <a href="/index.html#finance">Finance</a> › Australian Tax Calculator</nav>
+<div class="tool-header">
+  <div class="tool-header-icon" style="background:rgba(96,165,250,0.12);border:1px solid rgba(96,165,250,0.3)">🦘</div>
+  <h1>Australian Tax Calculator</h1>
+  <p>ATO-aligned FY2024-25 tax calculator including LITO offset and Medicare levy.</p>
+  <div style="margin-top:10px"><span class="tag finance">ATO 2024-25</span><span class="tag finance">LITO + Medicare</span></div>
+</div>
+<div class="tool-layout">
+<div class="calc-card">
+  <div class="field"><label>Annual Gross Income ($)</label><input type="number" id="atxInc" placeholder="80000"></div>
+  <div class="field"><label>Work-Related Deductions ($)</label><input type="number" id="atxDed" placeholder="0" min="0"></div>
+  <div class="field"><label>Extra Super Contributions ($)</label><input type="number" id="atxSup" placeholder="0" min="0"></div>
+  <button class="btn-calc" onclick="calcATX()">Calculate Tax</button>
+  <div class="result-box finance" id="atxR">
+    <div class="result-value finance" id="atxRVal"></div>
+    <div class="result-label">take-home per year</div>
+    <div class="result-grid" id="atxRGrid"></div>
+  </div>
+  <p style="font-size:0.75rem;color:var(--dim);margin-top:12px">⚠ Estimates only — consult a registered tax agent for formal advice.</p>
+</div>
+<div class="sidebar">
+  <div class="info-card">
+    <h3>FY2024-25 Tax Brackets</h3>
+    <ul>
+      <li>$0–$18,200 — 0%</li>
+      <li>$18,201–$45,000 — 19%</li>
+      <li>$45,001–$120,000 — 32.5%</li>
+      <li>$120,001–$180,000 — 37%</li>
+      <li>$180,001+ — 45%</li>
+    </ul>
+    <p style="margin-top:8px">LITO max $700 · Medicare 2%</p>
+  </div>
+  <div class="ad-rectangle"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1904958390525375" data-ad-format="auto" data-full-width-responsive="true"></ins><script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script></div>
+</div>
+</div>
+<div class="related-section"><h2>Related Tools</h2><div class="related-grid">
+  <a href="/pay-calculator.html" class="related-card">💵 Pay Calculator</a>
+  <a href="/hecs-help-calculator.html" class="related-card">🎓 HECS-HELP</a>
+  <a href="/bas-gst-calculator.html" class="related-card">📋 BAS & GST</a>
+  <a href="/superannuation-calculator.html" class="related-card">🏦 Superannuation</a>
+</div></div>
+<div class="faq-section"><h2>Frequently Asked Questions</h2>
+  <div class="faq-item"><button class="faq-question">What is LITO? <span class="faq-chevron">▼</span></button><div class="faq-answer"><p>Low Income Tax Offset reduces tax for those earning under $66,667. Maximum offset is $700 for incomes up to $37,500.</p></div></div>
+  <div class="faq-item"><button class="faq-question">Is Medicare included? <span class="faq-chevron">▼</span></button><div class="faq-answer"><p>Yes — the Medicare Levy of 2% is included in the calculation. Low-income earners below $26,000 are exempt.</p></div></div>
+</div>
+</div></div>
+<script>
+function fmt(n){return n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',')}
+function calcATX(){
+  var gross=parseFloat(document.getElementById('atxInc').value)||0;
+  var ded=parseFloat(document.getElementById('atxDed').value)||0;
+  var sup=parseFloat(document.getElementById('atxSup').value)||0;
+  var taxable=Math.max(0,gross-ded-sup);
+  var tax=0;
+  if(taxable>180000) tax=51667+(taxable-180000)*0.45;
+  else if(taxable>120000) tax=29467+(taxable-120000)*0.37;
+  else if(taxable>45000) tax=5092+(taxable-45000)*0.325;
+  else if(taxable>18200) tax=(taxable-18200)*0.19;
+  var lito=0;
+  if(taxable<=37500) lito=700;
+  else if(taxable<=45000) lito=700-(taxable-37500)*0.05;
+  else if(taxable<=66667) lito=325-(taxable-45000)*0.015;
+  tax=Math.max(0,tax-lito);
+  var med=taxable<26000?0:taxable*0.02;
+  var total=tax+med; var takehome=gross-total;
+  document.getElementById('atxR').className='result-box finance visible';
+  document.getElementById('atxRVal').textContent='$'+fmt(takehome);
+  document.getElementById('atxRGrid').innerHTML=
+    '<div class="result-item"><div class="result-item-label">Taxable Income</div><div class="result-item-value">$'+fmt(taxable)+'</div></div>'+
+    '<div class="result-item"><div class="result-item-label">Income Tax</div><div class="result-item-value">$'+fmt(tax)+'</div></div>'+
+    '<div class="result-item"><div class="result-item-label">LITO Applied</div><div class="result-item-value">$'+fmt(lito)+'</div></div>'+
+    '<div class="result-item"><div class="result-item-label">Medicare Levy</div><div class="result-item-value">$'+fmt(med)+'</div></div>'+
+    '<div class="result-item"><div class="result-item-label">Total Tax</div><div class="result-item-value">$'+fmt(total)+'</div></div>'+
+    '<div class="result-item"><div class="result-item-label">Effective Rate</div><div class="result-item-value">'+(total/gross*100).toFixed(1)+'%</div></div>'+
+    '<div class="result-item"><div class="result-item-label">Weekly Take-Home</div><div class="result-item-value">$'+fmt(takehome/52)+'</div></div>'+
+    '<div class="result-item"><div class="result-item-label">Fortnightly</div><div class="result-item-value">$'+fmt(takehome/26)+'</div></div>';
+}
+</script>
+<div id="site-footer"></div><div id="group-footer"></div><script src="/script.js"></script></body></html>

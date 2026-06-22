@@ -1,0 +1,61 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BAS & GST Calculator — Sole Trader Quarterly BAS Tool | MyCalcTools</title>
+<meta name="description" content="Calculate your quarterly BAS including GST collected, input tax credits and net GST payable or refundable.">
+<link rel="canonical" href="https://www.mycalctools.net/bas-gst-calculator.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="google-adsense-account" content="ca-pub-1904958390525375">
+<link rel="stylesheet" href="/style.css">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "BAS & GST Calculator \u2014 Sole Trader Quarterly BAS Tool", "url": "https://www.mycalctools.net/bas-gst-calculator.html", "description": "Calculate your quarterly BAS including GST collected, input tax credits and net GST payable or refundable.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Ascension Digital Group"}}</script>
+</head><body>
+<div id="brand-strip"></div>
+  <div id="cookie-consent-mount"></div><div id="nav"></div>
+
+
+<div class="tool-page"><div class="container">
+<nav class="breadcrumb"><a href="/index.html">Home</a> › <a href="/index.html#finance">Finance</a> › BAS & GST Calculator</nav>
+<div class="tool-header">
+  <div class="tool-header-icon" style="background:rgba(96,165,250,0.12);border:1px solid rgba(96,165,250,0.3)">📋</div>
+  <h1>BAS & GST Calculator</h1>
+  <p>Calculate your quarterly BAS: GST collected, input tax credits and net GST payable.</p>
+  <div style="margin-top:10px"><span class="tag finance">Quarterly BAS</span><span class="tag finance">ITC Claims</span></div>
+</div>
+<div class="tool-layout">
+<div class="calc-card">
+<div class="field"><label>Total Sales incl. GST ($)</label><input type="number" id="basSales" placeholder="55000"></div>
+  <div class="field"><label>GST-Free Sales ($)</label><input type="number" id="basFree" placeholder="0"></div>
+  <div class="field"><label>Business Purchases incl. GST ($)</label><input type="number" id="basPurch" placeholder="11000"></div>
+  <button class="btn-calc" onclick="calcBAS()">Calculate BAS</button>
+<div class="result-box finance" id="basR">
+    <div class="result-value finance" id="basRVal"></div>
+    <div class="result-label" id="basRLbl"></div>
+    <div class="result-grid" id="basRGrid"></div>
+  </div>
+
+</div>
+<div class="sidebar">
+  <div class="info-card"><h3>About</h3><p>Calculate your quarterly BAS: GST collected, input tax credits and net GST payable.</p><p style="margin-top:8px;font-size:0.8rem">GST registration threshold: $75,000 annual turnover.</p></div>
+  <div class="ad-rectangle"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1904958390525375" data-ad-format="auto" data-full-width-responsive="true"></ins><script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script></div>
+</div>
+</div>
+<div class="related-section"><h2>Related Tools</h2><div class="related-grid"><a href="/australian-tax-calculator.html" class="related-card">🦘 AU Tax</a><a href="/hecs-help-calculator.html" class="related-card">🎓 HECS-HELP</a></div></div>
+</div></div>
+<script>function fmt(n){return n.toFixed(2).replace(/B(?=(d{3})+(?!d))/g,',')}
+  function calcBAS(){
+    var sales=parseFloat(document.getElementById('basSales').value)||0;
+    var free=parseFloat(document.getElementById('basFree').value)||0;
+    var purch=parseFloat(document.getElementById('basPurch').value)||0;
+    var gstSales=(sales-free)/11;
+    var gstCred=purch/11;
+    var net=gstSales-gstCred;
+    document.getElementById('basR').className='result-box finance visible';
+    document.getElementById('basRVal').textContent='$'+fmt(Math.abs(net));
+    document.getElementById('basRLbl').textContent=net>=0?'GST Payable to ATO':'GST Refund from ATO';
+    document.getElementById('basRGrid').innerHTML=
+      '<div class="result-item"><div class="result-item-label">GST Collected</div><div class="result-item-value">$'+fmt(gstSales)+'</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Input Tax Credits</div><div class="result-item-value">$'+fmt(gstCred)+'</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Net GST</div><div class="result-item-value" style="color:'+(net>=0?'var(--finance)':'var(--health)')+'">$'+fmt(Math.abs(net))+'</div></div>'+
+      '<div class="result-item"><div class="result-item-label">GST-Free Sales</div><div class="result-item-value">$'+fmt(free)+'</div></div>';
+  }</script>
+<div id="site-footer"></div><div id="group-footer"></div><script src="/script.js"></script></body></html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pregnancy Calculator — Week by Week Tracker & Due Date | MyCalcTools</title>
+<meta name="description" content="Calculate your pregnancy week, trimester and key milestones from your last menstrual period date.">
+<link rel="canonical" href="https://www.mycalctools.net/pregnancy-calculator.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="google-adsense-account" content="ca-pub-1904958390525375">
+<link rel="stylesheet" href="/style.css">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Pregnancy Calculator \u2014 Week by Week Tracker & Due Date", "url": "https://www.mycalctools.net/pregnancy-calculator.html", "description": "Calculate your pregnancy week, trimester and key milestones from your last menstrual period date.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Ascension Digital Group"}}</script>
+</head><body>
+<div id="brand-strip"></div>
+  <div id="cookie-consent-mount"></div><div id="nav"></div>
+
+
+<div class="tool-page"><div class="container">
+<nav class="breadcrumb"><a href="/index.html">Home</a> › <a href="/index.html#health">Health</a> › Pregnancy Calculator</nav>
+<div class="tool-header">
+  <div class="tool-header-icon" style="background:rgba(52,211,153,0.12);border:1px solid rgba(52,211,153,0.3)">🤱</div>
+  <h1>Pregnancy Calculator</h1>
+  <p>Calculate your current pregnancy week, trimester and key milestones from your LMP date.</p>
+  <div style="margin-top:10px"><span class="tag health">Week by Week</span><span class="tag health">Trimesters</span></div>
+</div>
+<div class="tool-layout">
+<div class="calc-card">
+<div class="field"><label>Last Menstrual Period (LMP)</label><input type="date" id="pregLMP"></div>
+  <button class="btn-calc" onclick="calcPreg()">Calculate Week</button>
+<div class="result-box health" id="pregR">
+    <div class="result-value health" id="pregRVal"></div>
+    <div class="result-label" id="pregRLbl"></div>
+    <div class="result-grid" id="pregRGrid"></div>
+  </div>
+<div class="crosssite-box">📅 <a href="https://www.mycalendartools.net" target="_blank">MyCalendarTools</a> — countdown to due date and more</div>
+</div>
+<div class="sidebar">
+  <div class="info-card"><h3>About</h3><p>Calculate your current pregnancy week, trimester and key milestones from your LMP date.</p></div>
+  <div class="ad-rectangle"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1904958390525375" data-ad-format="auto" data-full-width-responsive="true"></ins><script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script></div>
+</div>
+</div>
+<div class="related-section"><h2>Related Tools</h2><div class="related-grid"><a href="/due-date-calculator.html" class="related-card">👶 Due Date Calculator</a><a href="/ovulation-calculator.html" class="related-card">🌸 Ovulation Calculator</a></div></div>
+</div></div>
+<script>document.addEventListener('DOMContentLoaded',function(){var d=new Date();d.setDate(d.getDate()-70);document.getElementById('pregLMP').value=d.toISOString().split('T')[0];});
+  function calcPreg(){
+    var lmp=new Date(document.getElementById('pregLMP').value);if(isNaN(lmp))return;
+    var now=new Date();
+    var days=Math.floor((now-lmp)/86400000);
+    var weeks=Math.floor(days/7);var extra=days%7;
+    var due=new Date(lmp);due.setDate(due.getDate()+280);
+    var tri=weeks<13?'First':weeks<27?'Second':'Third';
+    var ms=[{w:4,m:'Implantation complete'},{w:8,m:'Heartbeat detectable'},{w:12,m:'End of first trimester'},{w:20,m:'Anatomy scan'},{w:24,m:'Viability milestone'},{w:28,m:'Third trimester begins'},{w:37,m:'Full term'},{w:40,m:'Due date'}];
+    var next=ms.find(function(m){return m.w>weeks;});
+    document.getElementById('pregR').className='result-box health visible';
+    document.getElementById('pregRVal').textContent='Week '+weeks;
+    document.getElementById('pregRLbl').textContent=tri+' Trimester ('+extra+' days into week '+weeks+')';
+    document.getElementById('pregRGrid').innerHTML=
+      '<div class="result-item"><div class="result-item-label">Current Week</div><div class="result-item-value">'+weeks+'</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Trimester</div><div class="result-item-value">'+tri+'</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Due Date</div><div class="result-item-value">'+due.toLocaleDateString('en-AU',{day:'numeric',month:'long',year:'numeric'})+'</div></div>'+
+      (next?'<div class="result-item"><div class="result-item-label">Next Milestone (Wk '+next.w+')</div><div class="result-item-value">'+next.m+'</div></div>':'');
+  }</script>
+<div id="site-footer"></div><div id="group-footer"></div><script src="/script.js"></script></body></html>

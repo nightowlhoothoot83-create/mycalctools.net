@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HECS-HELP Repayment Calculator — FY2024-25 Thresholds | MyCalcTools</title>
+<meta name="description" content="Calculate your annual HECS-HELP repayment amount and years to pay off based on ATO FY2024-25 thresholds.">
+<link rel="canonical" href="https://www.mycalctools.net/hecs-help-calculator.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="google-adsense-account" content="ca-pub-1904958390525375">
+<link rel="stylesheet" href="/style.css">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "HECS-HELP Repayment Calculator \u2014 FY2024-25 Thresholds", "url": "https://www.mycalctools.net/hecs-help-calculator.html", "description": "Calculate your annual HECS-HELP repayment amount and years to pay off based on ATO FY2024-25 thresholds.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Ascension Digital Group"}}</script>
+</head><body>
+<div id="brand-strip"></div>
+  <div id="cookie-consent-mount"></div><div id="nav"></div>
+
+
+<div class="tool-page"><div class="container">
+<nav class="breadcrumb"><a href="/index.html">Home</a> › <a href="/index.html#finance">Finance</a> › HECS-HELP Calculator</nav>
+<div class="tool-header">
+  <div class="tool-header-icon" style="background:rgba(96,165,250,0.12);border:1px solid rgba(96,165,250,0.3)">🎓</div>
+  <h1>HECS-HELP Calculator</h1>
+  <p>Calculate HECS repayments using ATO FY2024-25 repayment thresholds.</p>
+  <div style="margin-top:10px"><span class="tag finance">HECS Thresholds</span><span class="tag finance">Indexation</span></div>
+</div>
+<div class="tool-layout">
+<div class="calc-card">
+<div class="field"><label>HECS Debt Balance ($)</label><input type="number" id="hecsDebt" placeholder="25000"></div>
+  <div class="field"><label>Annual Income ($)</label><input type="number" id="hecsInc" placeholder="65000"></div>
+  <button class="btn-calc" onclick="calcHECS()">Calculate Repayments</button>
+<div class="result-box finance" id="hecsR">
+    <div class="result-value finance" id="hecsRVal"></div>
+    <div class="result-label" id="hecsRLbl"></div>
+    <div class="result-grid" id="hecsRGrid"></div>
+  </div>
+
+</div>
+<div class="sidebar">
+  <div class="info-card"><h3>About</h3><p>Calculate HECS repayments using ATO FY2024-25 repayment thresholds.</p></div>
+  <div class="ad-rectangle"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1904958390525375" data-ad-format="auto" data-full-width-responsive="true"></ins><script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script></div>
+</div>
+</div>
+<div class="related-section"><h2>Related Tools</h2><div class="related-grid"><a href="/australian-tax-calculator.html" class="related-card">🦘 AU Tax</a><a href="/bas-gst-calculator.html" class="related-card">📋 BAS & GST</a></div></div>
+</div></div>
+<script>function fmt(n){return n.toFixed(0).replace(/B(?=(d{3})+(?!d))/g,',')}
+  function calcHECS(){
+    var debt=parseFloat(document.getElementById('hecsDebt').value)||0;
+    var inc=parseFloat(document.getElementById('hecsInc').value)||0;
+    var rate=0;
+    if(inc>=149000)rate=0.10;else if(inc>=132000)rate=0.095;else if(inc>=117000)rate=0.09;
+    else if(inc>=103000)rate=0.085;else if(inc>=92000)rate=0.08;else if(inc>=81000)rate=0.075;
+    else if(inc>=72000)rate=0.065;else if(inc>=67000)rate=0.055;else if(inc>=62000)rate=0.045;
+    else if(inc>=57000)rate=0.03;else if(inc>=51550)rate=0.01;
+    var annual=inc*rate;
+    var years=annual>0?Math.ceil(debt/annual):0;
+    document.getElementById('hecsR').className='result-box finance visible';
+    document.getElementById('hecsRVal').textContent='$'+fmt(annual);
+    document.getElementById('hecsRLbl').textContent='annual HECS repayment';
+    document.getElementById('hecsRGrid').innerHTML=
+      '<div class="result-item"><div class="result-item-label">Repayment Rate</div><div class="result-item-value">'+(rate*100).toFixed(1)+'%</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Annual Amount</div><div class="result-item-value">$'+fmt(annual)+'</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Weekly Deduction</div><div class="result-item-value">$'+fmt(annual/52)+'</div></div>'+
+      '<div class="result-item"><div class="result-item-label">Years to Repay</div><div class="result-item-value">'+(years>0?years+' yrs':'Below threshold')+'</div></div>';
+  }</script>
+<div id="site-footer"></div><div id="group-footer"></div><script src="/script.js"></script></body></html>
