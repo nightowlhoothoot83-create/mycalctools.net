@@ -1,0 +1,188 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Length &amp; Distance Converter — Feet, CM, Miles, KM &amp; More | MyCalcTools</title>
+<meta name="description" content="Free online length and distance converter. Convert between feet and cm, metres and feet, km and miles, inches and mm, yards and metres. Instant bidirectional conversion.">
+<link rel="canonical" href="https://www.mycalctools.net/converters/length-converter.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:title" content="Length &amp; Distance Converter — Feet, CM, Miles, KM &amp; More">
+<meta property="og:description" content="Convert between feet and cm, metres and feet, km and miles, inches and mm. Fast bidirectional conversion with reference table.">
+<meta property="og:url" content="https://www.mycalctools.net/converters/length-converter.html">
+<meta property="og:type" content="website"><meta property="og:site_name" content="MyCalcTools">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#080810">
+<meta name="google-adsense-account" content="ca-pub-1904958390525375">
+<link rel="stylesheet" href="/style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1904958390525375" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Length & Distance Converter",
+      "description": "Convert between feet and cm, metres and feet, km and miles, inches and mm, yards and metres. Instant bidirectional conversion with reference table.",
+      "url": "https://www.mycalctools.net/converters/length-converter.html",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "isAccessibleForFree": true,
+      "offers": { "@type": "Offer", "price": "0" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mycalctools.net/" },
+        { "@type": "ListItem", "position": 2, "name": "Converters", "item": "https://www.mycalctools.net/converters/" },
+        { "@type": "ListItem", "position": 3, "name": "Length & Distance Converter", "item": "https://www.mycalctools.net/converters/length-converter.html" }
+      ]
+    }
+  ]
+}
+</script>
+</head><body>
+<div id="brand-strip"></div><div id="nav"></div>
+<div class="ad-leaderboard container"><div class="ad-placeholder leaderboard">AdSense 728 x 90 placeholder</div></div>
+
+<div class="tool-page"><div class="container">
+<nav class="breadcrumb"><a href="/index.html">Home</a> › <a href="/converters/index.html">Converters</a> › Length &amp; Distance Converter</nav>
+<div class="tool-header">
+  <div class="tool-header-icon" style="background:rgba(99,102,241,0.12);border:1px solid rgba(99,102,241,0.3)">📏</div>
+  <h1>Length &amp; Distance Converter</h1>
+  <p>Convert between metric and imperial length units instantly. Enter a value on either side and the other updates live.</p>
+  <div style="margin-top:10px"><span class="tag" style="background:rgba(99,102,241,0.15);color:#818cf8">Bidirectional</span><span class="tag" style="background:rgba(99,102,241,0.15);color:#818cf8">Metric &amp; Imperial</span></div>
+</div>
+<div class="tool-layout">
+<div class="calc-card">
+
+  <h3 style="color:var(--dim);font-size:0.85rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px">Feet ↔ Centimetres</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px">
+    <div class="field"><label>Feet (ft)</label><input type="number" id="ftIn" placeholder="5.9" step="any" oninput="conv('ft')"></div>
+    <div class="field"><label>Centimetres (cm)</label><input type="number" id="cmOut1" placeholder="180" step="any" oninput="conv('cm1')"></div>
+  </div>
+
+  <h3 style="color:var(--dim);font-size:0.85rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px">Metres ↔ Feet</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px">
+    <div class="field"><label>Metres (m)</label><input type="number" id="mIn" placeholder="1.8" step="any" oninput="conv('m')"></div>
+    <div class="field"><label>Feet (ft)</label><input type="number" id="ftOut2" placeholder="5.9" step="any" oninput="conv('ft2')"></div>
+  </div>
+
+  <h3 style="color:var(--dim);font-size:0.85rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px">Kilometres ↔ Miles</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px">
+    <div class="field"><label>Kilometres (km)</label><input type="number" id="kmIn" placeholder="100" step="any" oninput="conv('km')"></div>
+    <div class="field"><label>Miles (mi)</label><input type="number" id="miOut" placeholder="62.1" step="any" oninput="conv('mi')"></div>
+  </div>
+
+  <h3 style="color:var(--dim);font-size:0.85rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px">Inches ↔ Millimetres</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px">
+    <div class="field"><label>Inches (in)</label><input type="number" id="inIn" placeholder="12" step="any" oninput="conv('in')"></div>
+    <div class="field"><label>Millimetres (mm)</label><input type="number" id="mmOut" placeholder="304.8" step="any" oninput="conv('mm')"></div>
+  </div>
+
+  <h3 style="color:var(--dim);font-size:0.85rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px">Yards ↔ Metres</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px">
+    <div class="field"><label>Yards (yd)</label><input type="number" id="ydIn" placeholder="100" step="any" oninput="conv('yd')"></div>
+    <div class="field"><label>Metres (m)</label><input type="number" id="mOut5" placeholder="91.4" step="any" oninput="conv('m5')"></div>
+  </div>
+
+  <div class="result-box" id="lenRef" style="background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.2);border-radius:12px;padding:20px;margin-top:8px">
+    <h3 style="color:#818cf8;margin-bottom:12px;font-size:1rem">📋 Quick Reference Table</h3>
+    <table style="width:100%;font-size:0.82rem;border-collapse:collapse">
+      <thead><tr style="color:var(--dim)"><th style="text-align:left;padding:4px 0">From</th><th style="text-align:left;padding:4px 0">To</th><th style="text-align:right;padding:4px 0">Value</th></tr></thead>
+      <tbody style="color:var(--fg)">
+        <tr><td style="padding:3px 0">1 inch</td><td>centimetres</td><td style="text-align:right">2.54 cm</td></tr>
+        <tr><td style="padding:3px 0">1 foot</td><td>centimetres</td><td style="text-align:right">30.48 cm</td></tr>
+        <tr><td style="padding:3px 0">1 yard</td><td>metres</td><td style="text-align:right">0.9144 m</td></tr>
+        <tr><td style="padding:3px 0">1 mile</td><td>kilometres</td><td style="text-align:right">1.60934 km</td></tr>
+        <tr><td style="padding:3px 0">5 feet</td><td>centimetres</td><td style="text-align:right">152.4 cm</td></tr>
+        <tr><td style="padding:3px 0">6 feet</td><td>centimetres</td><td style="text-align:right">182.88 cm</td></tr>
+        <tr><td style="padding:3px 0">100 km</td><td>miles</td><td style="text-align:right">62.14 mi</td></tr>
+        <tr><td style="padding:3px 0">1 metre</td><td>feet</td><td style="text-align:right">3.28084 ft</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+<div class="sidebar">
+  <div class="info-card"><h3>About this tool</h3><p>Instantly convert between the most common metric and imperial length units. Perfect for construction, travel planning, international shopping, and everyday use. All conversions update as you type — no button needed.</p></div>
+  <div class="ad-rectangle"><div class="ad-placeholder rectangle">AdSense 336 x 280 placeholder</div></div>
+</div>
+</div>
+
+<div class="faq-section">
+  <h2>About the Length &amp; Distance Converter</h2>
+  <p>This free length and distance converter handles the most common unit conversions between the metric system (metres, kilometres, centimetres, millimetres) and the imperial system (feet, inches, yards, miles). Every pair of inputs is bidirectional — type a value in either box and the opposite updates instantly.</p>
+
+  <h3 style="margin-top:20px;font-size:1.05rem">How to Use This Converter</h3>
+  <ol style="padding-left:1.2em;line-height:1.9">
+    <li>Find the unit pair you need — for example, <strong>Kilometres ↔ Miles</strong>.</li>
+    <li>Type your value into either input field.</li>
+    <li>The converted value appears immediately in the opposite box.</li>
+    <li>You can convert in either direction — metric to imperial or imperial to metric.</li>
+    <li>Refer to the quick reference table at the bottom for common fixed values.</li>
+  </ol>
+
+  <h3 style="margin-top:20px;font-size:1.05rem">Real-World Use Cases</h3>
+  <p><strong>Construction &amp; renovation:</strong> Australian building plans use millimetres and metres, but many imported tools, timber sizes, and hardware fittings still use imperial measurements. Quickly checking that 2×4 lumber is 38 × 89 mm can save costly mistakes on site.</p>
+  <p><strong>Height measurement:</strong> Most of the world uses centimetres, but many countries — including the US and UK — still list height in feet and inches. If you're 175 cm tall, that's 5 feet 9 inches. This converter makes the check instant.</p>
+  <p><strong>Travel &amp; navigation:</strong> Road signs in the US, UK, and a handful of other countries display distances in miles. If you're used to kilometres, knowing that a 100 km drive is roughly 62 miles helps you plan fuel stops and travel times accurately.</p>
+  <p><strong>International shopping:</strong> Clothing, screen sizes, and furniture dimensions are often listed in inches on US or UK retail sites. Converting to centimetres helps you verify fit before buying.</p>
+
+  <div class="faq-item" style="margin-top:20px"><button class="faq-question">Is 1 mile exactly 1.6 kilometres? <span class="faq-chevron">&#9660;</span></button>
+  <div class="faq-answer"><p>Not exactly. One mile is precisely 1.60934 km. The commonly used "1.6 km" is a convenient approximation. For navigation and fuel calculations, use the exact figure for best accuracy.</p></div></div>
+  <div class="faq-item"><button class="faq-question">What is the difference between a metre and a yard? <span class="faq-chevron">&#9660;</span></button>
+  <div class="faq-answer"><p>A metre is 3.28084 feet; a yard is exactly 3 feet (0.9144 m). So a metre is just slightly longer than a yard — about 9.36 cm longer.</p></div></div>
+</div>
+
+<section class="tool-info-section" aria-label="Tool information">
+  <div class="tool-info-panel">
+    <h2>About this tool</h2>
+    <p>Convert between metric and imperial length units instantly. Enter a value on either side and the other updates live. MyCalcTools calculators are designed for quick everyday estimates with clear inputs, instant results and no account required. Results are provided for general information and planning, not as professional financial, medical, legal or trade advice.</p>
+  </div>
+  <div class="tool-info-panel">
+    <h2>How to use it</h2>
+    <ol>
+      <li>Enter the values requested in the calculator fields.</li>
+      <li>Choose the option that best matches your situation, unit or goal.</li>
+      <li>Press the calculate button and review the result summary.</li>
+      <li>Adjust your inputs to compare different scenarios.</li>
+    </ol>
+  </div>
+  <div class="tool-info-panel">
+    <h2>Common use cases</h2>
+    <ul>
+      <li>Checking a quick estimate before making a decision.</li>
+      <li>Comparing two or more everyday scenarios side by side.</li>
+      <li>Planning budgets, meals, projects, dates or personal routines.</li>
+      <li>Double-checking manual calculations with a simple online reference.</li>
+    </ul>
+  </div>
+</section>
+<div class="related-section"><h2>Related Converters</h2><div class="related-grid">
+  <a href="/converters/weight-converter.html" class="related-card"><span>⚖️</span>Weight Converter</a>
+  <a href="/converters/volume-converter.html" class="related-card"><span>🧪</span>Volume Converter</a>
+  <a href="/converters/temperature-converter.html" class="related-card"><span>🌡️</span>Temperature Converter</a>
+  <a href="/converters/speed-converter.html" class="related-card"><span>🚀</span>Speed Converter</a>
+  <a href="/bmi-calculator.html" class="related-card"><span>⚖️</span>BMI Calculator</a>
+</div></div>
+
+</div></div>
+<script>
+function r(id,v){var e=document.getElementById(id);if(e&&document.activeElement!==e)e.value=v;}
+function fmt(n){return n===''?'':(Math.round(n*10000)/10000);}
+function conv(from){
+  var v;
+  if(from==='ft'){v=parseFloat(document.getElementById('ftIn').value);r('cmOut1',fmt(v*30.48));}
+  else if(from==='cm1'){v=parseFloat(document.getElementById('cmOut1').value);r('ftIn',fmt(v/30.48));}
+  else if(from==='m'){v=parseFloat(document.getElementById('mIn').value);r('ftOut2',fmt(v*3.28084));}
+  else if(from==='ft2'){v=parseFloat(document.getElementById('ftOut2').value);r('mIn',fmt(v/3.28084));}
+  else if(from==='km'){v=parseFloat(document.getElementById('kmIn').value);r('miOut',fmt(v/1.60934));}
+  else if(from==='mi'){v=parseFloat(document.getElementById('miOut').value);r('kmIn',fmt(v*1.60934));}
+  else if(from==='in'){v=parseFloat(document.getElementById('inIn').value);r('mmOut',fmt(v*25.4));}
+  else if(from==='mm'){v=parseFloat(document.getElementById('mmOut').value);r('inIn',fmt(v/25.4));}
+  else if(from==='yd'){v=parseFloat(document.getElementById('ydIn').value);r('mOut5',fmt(v*0.9144));}
+  else if(from==='m5'){v=parseFloat(document.getElementById('mOut5').value);r('ydIn',fmt(v/0.9144));}
+}
+</script>
+<div id="site-footer"></div><div id="group-footer"></div>
+<script src="/script.js"></script>
+<script src="/cookie-consent.js"></script>
+</body></html>

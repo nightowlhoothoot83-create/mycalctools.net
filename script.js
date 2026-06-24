@@ -24,6 +24,9 @@ const ALL_TOOLS = [
   { name: 'Cost of Living Calculator', file: 'cost-of-living-calculator.html', cat: 'Finance', emoji: '🛒' },
   { name: 'Air Fryer Calculator', file: 'airfryer-calculator.html', cat: 'Kitchen', emoji: '🍳' },
   { name: 'Boiled Egg Calculator', file: 'boiled-egg-calculator.html', cat: 'Kitchen', emoji: '🥚' },
+  { name: 'Recipe Scaling Calculator', file: 'recipe-scaling-calculator.html', cat: 'Kitchen', emoji: 'x' },
+  { name: 'Cups to Grams Converter', file: 'cups-grams-calculator.html', cat: 'Kitchen', emoji: 'g' },
+  { name: 'Pan Size Converter', file: 'pan-size-converter.html', cat: 'Kitchen', emoji: 'pan' },
   { name: 'Age Calculator', file: 'age-calculator.html', cat: 'Lifestyle', emoji: '🎂' },
   { name: 'Date Calculator', file: 'date-calculator.html', cat: 'Lifestyle', emoji: '🗓️' },
   { name: 'Fuel Cost Calculator', file: 'fuel-cost-calculator.html', cat: 'Lifestyle', emoji: '⛽' },
@@ -39,17 +42,21 @@ const ALL_TOOLS = [
   { name: 'Rainwater Harvesting Calculator', file: 'rainwater-calculator.html', cat: 'Eco', emoji: '🌧️' },
   { name: 'Solar & Battery Calculator', file: 'solar-calculator.html', cat: 'Eco', emoji: '☀️' },
   { name: 'Food Forest Calculator', file: 'food-forest-calculator.html', cat: 'Eco', emoji: '🌳' },
+  { name: 'Length & Distance Converter', file: 'converters/length-converter.html', cat: 'Converters', emoji: '📏' },
+  { name: 'Weight Converter', file: 'converters/weight-converter.html', cat: 'Converters', emoji: '⚖️' },
+  { name: 'Volume Converter', file: 'converters/volume-converter.html', cat: 'Converters', emoji: '🧪' },
+  { name: 'Temperature Converter', file: 'converters/temperature-converter.html', cat: 'Converters', emoji: '🌡️' },
+  { name: 'Speed Converter', file: 'converters/speed-converter.html', cat: 'Converters', emoji: '🚀' },
 ];
 
 function renderBrandStrip() {
   document.getElementById('brand-strip').innerHTML = `
     <div class="rs-brand-strip">
       <div class="rs-brand-left">
-        <img src="/mycalctools-logo.jpg" alt="MyCalcTools" class="rs-raven-mark">
-        <div>
-          <div class="rs-brand-name">MyCalcTools</div>
-          <span class="rs-brand-sub">Calculate. Solve. Succeed.</span>
-        </div>
+        <a href="https://ravensharppod.pages.dev/login" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:10px;text-decoration:none">
+          <img src="/raven-sharp.jpg" alt="Raven Sharp" style="width:32px;height:32px;border-radius:8px;object-fit:cover;filter:drop-shadow(0 0 6px rgba(6,100,255,0.5))">
+          <span style="font-weight:700;font-size:0.9rem;color:var(--text,#e8eaf6);letter-spacing:0.02em">Raven Sharp <span style="color:var(--muted,#94a3b8);font-weight:400">Tools</span></span>
+        </a>
       </div>
       <a href="/about.html#support" class="rs-support-pill">Support Us</a>
     </div>`;
@@ -60,12 +67,12 @@ function renderNav() {
     <nav class="site-nav">
       <div class="nav-inner">
         <a href="/index.html" class="nav-logo">
-          <div class="nav-logo-icon">🧮</div>
+          <img src="/mycalctools-logo.png" alt="MyCalcTools logo" class="nav-logo-icon">
           <span class="nav-logo-text">MyCalcTools</span>
         </a>
         <div class="nav-search">
           <span class="nav-search-icon">🔍</span>
-          <input type="text" class="nav-search-input" id="navSearch" placeholder="Search 38 tools..." autocomplete="off">
+          <input type="text" class="nav-search-input" id="navSearch" placeholder="Search 46 tools..." autocomplete="off">
           <div class="search-dropdown" id="navDropdown"></div>
         </div>
         <ul class="nav-links">
@@ -75,8 +82,10 @@ function renderNav() {
           <li><a href="/index.html#lifestyle">Lifestyle</a></li>
           <li><a href="/index.html#business">Business</a></li>
           <li><a href="/index.html#eco">Eco</a></li>
+          <li><a href="/converters/">Converters</a></li>
         </ul>
         <a href="https://www.mycalendartools.net" class="nav-sister-pill" target="_blank" rel="noopener">📅 MyCalendarTools</a>
+        <a href="https://www.wheelnamepicker.com.au" class="nav-sister-pill" target="_blank" rel="noopener">🎡 WheelPicker</a>
         <button class="nav-hamburger" id="hamburger" aria-label="Menu">
           <span></span><span></span><span></span>
         </button>
@@ -89,6 +98,7 @@ function renderNav() {
       <a href="/index.html#lifestyle">🎯 Lifestyle</a>
       <a href="/index.html#business">📊 Business</a>
       <a href="/index.html#eco">🌱 Eco</a>
+      <a href="/converters/">🔄 Converters</a>
       <a href="/about.html">About</a>
       <a href="https://www.mycalendartools.net" target="_blank" rel="noopener">📅 MyCalendarTools</a>
     </div>`;
@@ -103,8 +113,8 @@ function renderFooter() {
         <div class="footer-grid">
           <div class="footer-brand">
             <a href="/index.html" class="nav-logo">
-              <div class="nav-logo-icon">🧮</div>
-              <span class="nav-logo-text">MyCalcTools</span>
+              <img src="/mycalctools-logo.png" alt="MyCalcTools logo" class="nav-logo-icon">
+          <span class="nav-logo-text">MyCalcTools</span>
             </a>
             <p>Free online calculators for everyday life. No accounts, no noise. Just answers.</p>
             <p style="margin-top:8px;font-size:0.75rem">© 2025 MyCalcTools · Part of the Ascension Digital Group</p>
@@ -134,7 +144,8 @@ function renderFooter() {
           <div class="footer-col">
             <h4>Info</h4>
             <ul>
-              <li><a href="/about.html">About</a></li>
+              <li><a href="/converters/">🔄 Converters</a>
+      <a href="/about.html">About</a></li>
               <li><a href="/contact.html">Contact</a></li>
               <li><a href="/privacy.html">Privacy Policy</a></li>
               <li><a href="/terms.html">Terms of Use</a></li>
@@ -158,21 +169,15 @@ function renderGroupFooter() {
       <h3>Part of the Ascension Digital Group</h3>
       <p class="rs-footer-tagline">Elevating Your Digital Future</p>
       <div class="rs-footer-links">
-        <a href="/index.html" title="MyCalcTools"><img src="/mycalctools-logo.jpg" alt="MyCalcTools" class="rs-footer-brand-icon"></a>
-        <a href="https://www.mycalendartools.net" target="_blank" rel="noopener" title="MyCalendarTools"><img src="/mycalendartools-logo.jpg" alt="MyCalendarTools" class="rs-footer-brand-icon"></a>
+        <a href="/index.html" title="MyCalcTools"><img src="/mycalctools-logo.png" alt="MyCalcTools" class="rs-footer-brand-icon"></a>
+        <a href="https://www.mycalendartools.net" target="_blank" rel="noopener" title="MyCalendarTools"><img src="/mycalendartools-logo.png" alt="MyCalendarTools" class="rs-footer-brand-icon"></a>
+        <a href="https://www.wheelnamepicker.com.au" target="_blank" rel="noopener" title="WheelNamePicker"><img src="/wheelnamepicker-logo.png" alt="WheelNamePicker" class="rs-footer-brand-icon"></a>
         <a href="https://zyiacreations.etsy.com" target="_blank" rel="noopener" title="Zyia Creations"><img src="/zyia-creations.png" alt="Zyia Creations" class="rs-footer-brand-icon"></a>
         <a href="https://www.facebook.com/share/18Ma3KsJTo/" target="_blank" rel="noopener" title="Feed the Feed"><img src="/feed-the-feed.jpg" alt="Feed the Feed" class="rs-footer-brand-icon"></a>
-        <a href="http://www.youtube.com/@spewcrewkids" target="_blank" rel="noopener" title="Spew Crew Kids"><img src="/spew-crew.jpg" alt="Spew Crew Kids" class="rs-footer-brand-icon"></a>
+        <a href="http://www.youtube.com/@spewcrewkids" target="_blank" rel="noopener" title="Spew Crew Kids"><img src="/spew-crew.jpg" alt="Spew Crew Kids" class="rs-footer-brand-icon" style="background:#000;border-radius:8px"></a>
         <a href="https://mysticalmoments.pages.dev" target="_blank" rel="noopener" title="Mystical Moments"><img src="/mystical-moments.png" alt="Mystical Moments" class="rs-footer-brand-icon"></a>
-        <a href="https://ravensharp.com.au" target="_blank" rel="noopener" title="RavenSharp"><img src="/ravensharp-logo.jpg" alt="RavenSharp" class="rs-footer-brand-icon"></a>
-        <div style="position:relative;display:inline-block">
-          <img src="/synergy-services.png" alt="Synergy Services" class="rs-footer-brand-icon" style="opacity:0.6">
-          <span style="position:absolute;top:-6px;right:-6px;background:var(--gold);color:#000;font-size:0.55rem;font-weight:800;padding:2px 5px;border-radius:999px;white-space:nowrap">SOON</span>
-        </div>
-        <div style="position:relative;display:inline-block">
-          <img src="/natures-sacred-synergy.jpg" alt="Nature's Sacred Synergy" class="rs-footer-brand-icon" style="opacity:0.6">
-          <span style="position:absolute;top:-6px;right:-6px;background:#34D399;color:#000;font-size:0.55rem;font-weight:800;padding:2px 5px;border-radius:999px;white-space:nowrap">NFP</span>
-        </div>
+        <a href="https://ravensharppod.pages.dev/login" target="_blank" rel="noopener" title="RavenSharp"><img src="/ravensharp-logo.jpg" alt="RavenSharp" class="rs-footer-brand-icon"></a>
+
       </div>
       <a href="/about.html#support" class="btn-finance" style="margin-top:8px">Support Us</a>
     </div>`;
@@ -182,8 +187,7 @@ function renderAdLeaderboard(containerId) {
   const el = document.getElementById(containerId);
   if (!el) return;
   el.innerHTML = `<div class="ad-leaderboard container">
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1904958390525375" data-ad-slot="<!-- INSERT AD SLOT ID -->" data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});<\/script>
+    <div class="ad-placeholder leaderboard">AdSense 728 x 90 placeholder</div>
   </div>`;
 }
 
@@ -238,12 +242,12 @@ function initFAQ() {
 
 function initPage() {
   renderBrandStrip();
-  renderCookieConsent();
-  initCookieConsent();
   renderNav();
   renderFooter();
   renderGroupFooter();
   initFAQ();
+  const ha = document.getElementById('hosting-affiliate');
+  if (ha) ha.innerHTML = renderHostingAffiliate();
 }
 
 document.addEventListener('DOMContentLoaded', initPage);
@@ -253,60 +257,10 @@ function renderRavenSharpPromo() {
   return `<div class="soft-promo-card card container">
     <img src="/ravensharp-logo.jpg" alt="RavenSharp">
     <div><h3>RavenSharp Tools</h3><p>AI-assisted formatting, fixing and file tools from the Ascension Digital Group.</p></div>
-    <a class="btn-finance" href="https://ravensharp.com.au" target="_blank" rel="noopener">Open RavenSharp</a>
+    <a class="btn-finance" href="https://ravensharppod.pages.dev/login" target="_blank" rel="noopener">Open RavenSharp</a>
   </div>`;
 }
 
 function renderHostingAffiliate() {
   return `<div class="affiliate-banner card container"><a href="https://ventraip.com.au/affiliate/uJmhYi4h" target="_blank" rel="sponsored noopener"><img src="/ventraip-affiliate-banner.jpg" alt="VentraIP Australian website hosting affiliate banner"></a></div>`;
-}
-
-/* ── Cookie Consent + Consent-Gated AdSense Loading ────────────────────── */
-function loadAdsenseScript() {
-  if (document.getElementById('adsbygoogle-script')) return;
-  var s = document.createElement('script');
-  s.id = 'adsbygoogle-script';
-  s.async = true;
-  s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1904958390525375';
-  s.crossOrigin = 'anonymous';
-  document.head.appendChild(s);
-}
-
-function renderCookieConsent() {
-  var mount = document.getElementById('cookie-consent-mount');
-  if (!mount) return;
-  mount.innerHTML = `<div id="cookie-consent-banner" class="cookie-consent-banner" style="display:none">
-    <div class="cookie-consent-inner">
-      <p>We use cookies for basic site functionality and to show ads via Google AdSense. Third-party vendors, including Google, use cookies to serve ads based on your prior visits to this or other websites. You can accept or decline non-essential cookies below. See our <a href="/privacy.html">Privacy Policy</a> for details.</p>
-      <div class="cookie-consent-actions">
-        <button id="cookie-decline-btn" class="btn-secondary">Decline</button>
-        <button id="cookie-accept-btn" class="btn-primary">Accept</button>
-      </div>
-    </div>
-  </div>`;
-}
-
-function initCookieConsent() {
-  var choice = localStorage.getItem('cookieConsent');
-  if (choice === 'accepted') {
-    loadAdsenseScript();
-    return;
-  }
-  if (choice === 'declined') {
-    return;
-  }
-  var el = document.getElementById('cookie-consent-banner');
-  if (el) el.style.display = 'block';
-
-  var acceptBtn = document.getElementById('cookie-accept-btn');
-  var declineBtn = document.getElementById('cookie-decline-btn');
-  if (acceptBtn) acceptBtn.addEventListener('click', function () {
-    localStorage.setItem('cookieConsent', 'accepted');
-    if (el) el.style.display = 'none';
-    loadAdsenseScript();
-  });
-  if (declineBtn) declineBtn.addEventListener('click', function () {
-    localStorage.setItem('cookieConsent', 'declined');
-    if (el) el.style.display = 'none';
-  });
 }

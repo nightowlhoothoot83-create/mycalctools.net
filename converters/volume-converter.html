@@ -1,0 +1,192 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volume Converter — Cups, ML, Gallons, Litres, Fluid Oz | MyCalcTools</title>
+<meta name="description" content="Free volume converter. Convert cups to ml, gallons to litres, fluid oz to ml, tablespoons and teaspoons to ml, pints to litres. US and Imperial variants labelled.">
+<link rel="canonical" href="https://www.mycalctools.net/converters/volume-converter.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:title" content="Volume Converter — Cups, ML, Gallons, Litres, Fluid Oz">
+<meta property="og:description" content="Convert cups to ml, gallons to litres, fluid oz to ml, tablespoons, teaspoons, and pints. US and Imperial variants clearly labelled.">
+<meta property="og:url" content="https://www.mycalctools.net/converters/volume-converter.html">
+<meta property="og:type" content="website"><meta property="og:site_name" content="MyCalcTools">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#080810">
+<meta name="google-adsense-account" content="ca-pub-1904958390525375">
+<link rel="stylesheet" href="/style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1904958390525375" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Volume Converter",
+      "description": "Convert between cups and ml, gallons and litres, fluid oz and ml, tablespoons, teaspoons, and pints. US and Imperial variants clearly labelled.",
+      "url": "https://www.mycalctools.net/converters/volume-converter.html",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "isAccessibleForFree": true,
+      "offers": { "@type": "Offer", "price": "0" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mycalctools.net/" },
+        { "@type": "ListItem", "position": 2, "name": "Converters", "item": "https://www.mycalctools.net/converters/" },
+        { "@type": "ListItem", "position": 3, "name": "Volume Converter", "item": "https://www.mycalctools.net/converters/volume-converter.html" }
+      ]
+    }
+  ]
+}
+</script>
+</head><body>
+<div id="brand-strip"></div><div id="nav"></div>
+<div class="ad-leaderboard container"><div class="ad-placeholder leaderboard">AdSense 728 x 90 placeholder</div></div>
+
+<div class="tool-page"><div class="container">
+<nav class="breadcrumb"><a href="/index.html">Home</a> › <a href="/converters/index.html">Converters</a> › Volume Converter</nav>
+<div class="tool-header">
+  <div class="tool-header-icon" style="background:rgba(99,102,241,0.12);border:1px solid rgba(99,102,241,0.3)">🧪</div>
+  <h1>Volume Converter</h1>
+  <p>Convert between metric and imperial volume units for cooking, fuel, and everyday use. US and Imperial pint/gallon variants are clearly labelled.</p>
+  <div style="margin-top:10px"><span class="tag" style="background:rgba(99,102,241,0.15);color:#818cf8">Bidirectional</span><span class="tag" style="background:rgba(99,102,241,0.15);color:#818cf8">US &amp; Imperial</span></div>
+</div>
+<div class="tool-layout">
+<div class="calc-card">
+
+  <h3 style="color:var(--dim);font-size:0.85rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px">Cups (US) ↔ Millilitres</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px">
+    <div class="field"><label>US Cups</label><input type="number" id="cupIn" placeholder="1" step="any" oninput="vconv('cup')"></div>
+    <div class="field"><label>Millilitres (ml)</label><input type="number" id="mlOut1" placeholder="236.6" step="any" oninput="vconv('ml1')"></div>
+  </div>
+
+  <h3 style="color:var(--dim);font-size:0.85rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px">Gallons ↔ Litres</h3>
+  <div style="background:rgba(99,102,241,0.06);border-radius:8px;padding:10px;margin-bottom:6px;font-size:0.8rem;color:var(--dim)">⚠️ US gallon = 3.785 L · Imperial (UK) gallon = 4.546 L</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:4px">
+    <div class="field"><label>US Gallons</label><input type="number" id="galUsIn" placeholder="1" step="any" oninput="vconv('galUs')"></div>
+    <div class="field"><label>Litres (L)</label><input type="number" id="lOutGalUs" placeholder="3.785" step="any" oninput="vconv('lGalUs')"></div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px">
+    <div class="field"><label>Imperial Gallons (UK)</label><input type="number" id="galUkIn" placeholder="1" step="any" oninput="vconv('galUk')"></div>
+    <div class="field"><label>Litres (L)</label><input type="number" id="lOutGalUk" placeholder="4.546" step="any" oninput="vconv('lGalUk')"></div>
+  </div>
+
+  <h3 style="color:var(--dim);font-size:0.85rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px">Fluid Ounces (US) ↔ Millilitres</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px">
+    <div class="field"><label>US Fluid Oz (fl oz)</label><input type="number" id="flozIn" placeholder="8" step="any" oninput="vconv('floz')"></div>
+    <div class="field"><label>Millilitres (ml)</label><input type="number" id="mlOut3" placeholder="236.6" step="any" oninput="vconv('ml3')"></div>
+  </div>
+
+  <h3 style="color:var(--dim);font-size:0.85rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px">Tablespoons (AU/US) ↔ Millilitres</h3>
+  <div style="background:rgba(99,102,241,0.06);border-radius:8px;padding:10px;margin-bottom:6px;font-size:0.8rem;color:var(--dim)">⚠️ Australian tablespoon = 20 ml · US tablespoon = 14.787 ml</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px">
+    <div class="field"><label>AU Tablespoons</label><input type="number" id="tbspAuIn" placeholder="1" step="any" oninput="vconv('tbspAu')"></div>
+    <div class="field"><label>Millilitres (ml)</label><input type="number" id="mlOut4" placeholder="20" step="any" oninput="vconv('ml4')"></div>
+  </div>
+
+  <h3 style="color:var(--dim);font-size:0.85rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px">Teaspoons ↔ Millilitres</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px">
+    <div class="field"><label>Teaspoons (tsp)</label><input type="number" id="tspIn" placeholder="1" step="any" oninput="vconv('tsp')"></div>
+    <div class="field"><label>Millilitres (ml)</label><input type="number" id="mlOut5" placeholder="5" step="any" oninput="vconv('ml5')"></div>
+  </div>
+
+  <h3 style="color:var(--dim);font-size:0.85rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px">Pints ↔ Litres</h3>
+  <div style="background:rgba(99,102,241,0.06);border-radius:8px;padding:10px;margin-bottom:6px;font-size:0.8rem;color:var(--dim)">⚠️ US pint = 473 ml · Imperial (UK) pint = 568 ml</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:4px">
+    <div class="field"><label>US Pints</label><input type="number" id="pintUsIn" placeholder="1" step="any" oninput="vconv('pintUs')"></div>
+    <div class="field"><label>Litres (L)</label><input type="number" id="lOutPintUs" placeholder="0.473" step="any" oninput="vconv('lPintUs')"></div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px">
+    <div class="field"><label>Imperial Pints (UK)</label><input type="number" id="pintUkIn" placeholder="1" step="any" oninput="vconv('pintUk')"></div>
+    <div class="field"><label>Litres (L)</label><input type="number" id="lOutPintUk" placeholder="0.568" step="any" oninput="vconv('lPintUk')"></div>
+  </div>
+
+</div>
+<div class="sidebar">
+  <div class="info-card"><h3>About this tool</h3><p>Convert volume units for cooking, baking, fuel measurement, and liquid medication. All conversions are bidirectional and update as you type. US and Imperial (UK) variants for gallons and pints are clearly separated to avoid recipe errors.</p></div>
+  <div class="ad-rectangle"><div class="ad-placeholder rectangle">AdSense 336 x 280 placeholder</div></div>
+</div>
+</div>
+
+<div class="faq-section">
+  <h2>About the Volume Converter</h2>
+  <p>Volume measurement can be confusing because the US and UK (Imperial) systems use the same unit names but with different values. A US gallon is 3.785 litres; a UK gallon is 4.546 litres. A US pint is 473 ml; a UK pint is 568 ml. This converter clearly separates these variants so you always get the right result.</p>
+
+  <h3 style="margin-top:20px;font-size:1.05rem">How to Use This Converter</h3>
+  <ol style="padding-left:1.2em;line-height:1.9">
+    <li>Find the unit pair you need — for example <strong>Cups ↔ Millilitres</strong>.</li>
+    <li>Check the warning labels where US and Imperial variants differ — gallons, pints, and tablespoons all have regional differences.</li>
+    <li>Type your value into either input field.</li>
+    <li>The converted value updates instantly in the opposite field.</li>
+    <li>Switch direction anytime — type in either box to convert both ways.</li>
+  </ol>
+
+  <h3 style="margin-top:20px;font-size:1.05rem">Real-World Use Cases</h3>
+  <p><strong>Cooking &amp; baking from international recipes:</strong> Australian cooks working from US recipes frequently hit confusion with cups and tablespoons. An Australian tablespoon is 20 ml, while a US tablespoon is only 14.787 ml. For most cooking this difference is minor, but in baking it can affect the outcome — this converter shows the precise values so you can scale accurately.</p>
+  <p><strong>Fuel &amp; vehicle economy:</strong> Fuel economy in the US is quoted in miles per gallon (US gallons). Converting to litres per 100 km (the Australian standard) helps you understand how efficient an imported vehicle actually is. One US gallon ≈ 3.785 litres — knowing this makes the comparison quick.</p>
+  <p><strong>Liquid medication dosing:</strong> Some medication instructions list doses in fluid ounces (common in the US) while Australian packaging uses millilitres. 1 US fl oz = 29.5735 ml, so a 4 fl oz bottle holds approximately 118 ml.</p>
+
+  <div class="faq-item" style="margin-top:20px"><button class="faq-question">Why is a US cup different from an Imperial cup? <span class="faq-chevron">&#9660;</span></button>
+  <div class="faq-answer"><p>A US legal cup is 240 ml. An Imperial (UK) cup (now rarely used in cooking) is 284 ml. An Australian metric cup is 250 ml. Most modern Australian recipes use the 250 ml metric cup, which is close enough to the US 240 ml cup for most recipes, but matters in precision baking.</p></div></div>
+  <div class="faq-item"><button class="faq-question">How many ml is a tablespoon in Australia? <span class="faq-chevron">&#9660;</span></button>
+  <div class="faq-answer"><p>In Australia, one tablespoon is 20 ml (4 teaspoons). In the US and UK, a tablespoon is 15 ml (3 teaspoons). This is the most common source of recipe confusion between Australian and American cookbooks.</p></div></div>
+</div>
+
+<section class="tool-info-section" aria-label="Tool information">
+  <div class="tool-info-panel">
+    <h2>About this tool</h2>
+    <p>Convert between metric and imperial volume units for cooking, fuel, and everyday use. US and Imperial pint/gallon variants are clearly labelled. MyCalcTools calculators are designed for quick everyday estimates with clear inputs, instant results and no account required. Results are provided for general information and planning, not as professional financial, medical, legal or trade advice.</p>
+  </div>
+  <div class="tool-info-panel">
+    <h2>How to use it</h2>
+    <ol>
+      <li>Enter the values requested in the calculator fields.</li>
+      <li>Choose the option that best matches your situation, unit or goal.</li>
+      <li>Press the calculate button and review the result summary.</li>
+      <li>Adjust your inputs to compare different scenarios.</li>
+    </ol>
+  </div>
+  <div class="tool-info-panel">
+    <h2>Common use cases</h2>
+    <ul>
+      <li>Checking a quick estimate before making a decision.</li>
+      <li>Comparing two or more everyday scenarios side by side.</li>
+      <li>Planning budgets, meals, projects, dates or personal routines.</li>
+      <li>Double-checking manual calculations with a simple online reference.</li>
+    </ul>
+  </div>
+</section>
+<div class="related-section"><h2>Related Converters</h2><div class="related-grid">
+  <a href="/converters/weight-converter.html" class="related-card"><span>⚖️</span>Weight Converter</a>
+  <a href="/converters/length-converter.html" class="related-card"><span>📏</span>Length Converter</a>
+  <a href="/converters/temperature-converter.html" class="related-card"><span>🌡️</span>Temperature Converter</a>
+  <a href="/airfryer-calculator.html" class="related-card"><span>🍳</span>Air Fryer Calculator</a>
+</div></div>
+
+</div></div>
+<script>
+function rv(id,v){var e=document.getElementById(id);if(e&&document.activeElement!==e)e.value=v;}
+function fmtv(n){return isNaN(n)?'':(Math.round(n*10000)/10000);}
+function vconv(from){
+  var v;
+  if(from==='cup'){v=parseFloat(document.getElementById('cupIn').value);rv('mlOut1',fmtv(v*236.588));}
+  else if(from==='ml1'){v=parseFloat(document.getElementById('mlOut1').value);rv('cupIn',fmtv(v/236.588));}
+  else if(from==='galUs'){v=parseFloat(document.getElementById('galUsIn').value);rv('lOutGalUs',fmtv(v*3.78541));}
+  else if(from==='lGalUs'){v=parseFloat(document.getElementById('lOutGalUs').value);rv('galUsIn',fmtv(v/3.78541));}
+  else if(from==='galUk'){v=parseFloat(document.getElementById('galUkIn').value);rv('lOutGalUk',fmtv(v*4.54609));}
+  else if(from==='lGalUk'){v=parseFloat(document.getElementById('lOutGalUk').value);rv('galUkIn',fmtv(v/4.54609));}
+  else if(from==='floz'){v=parseFloat(document.getElementById('flozIn').value);rv('mlOut3',fmtv(v*29.5735));}
+  else if(from==='ml3'){v=parseFloat(document.getElementById('mlOut3').value);rv('flozIn',fmtv(v/29.5735));}
+  else if(from==='tbspAu'){v=parseFloat(document.getElementById('tbspAuIn').value);rv('mlOut4',fmtv(v*20));}
+  else if(from==='ml4'){v=parseFloat(document.getElementById('mlOut4').value);rv('tbspAuIn',fmtv(v/20));}
+  else if(from==='tsp'){v=parseFloat(document.getElementById('tspIn').value);rv('mlOut5',fmtv(v*5));}
+  else if(from==='ml5'){v=parseFloat(document.getElementById('mlOut5').value);rv('tspIn',fmtv(v/5));}
+  else if(from==='pintUs'){v=parseFloat(document.getElementById('pintUsIn').value);rv('lOutPintUs',fmtv(v*0.473176));}
+  else if(from==='lPintUs'){v=parseFloat(document.getElementById('lOutPintUs').value);rv('pintUsIn',fmtv(v/0.473176));}
+  else if(from==='pintUk'){v=parseFloat(document.getElementById('pintUkIn').value);rv('lOutPintUk',fmtv(v*0.568261));}
+  else if(from==='lPintUk'){v=parseFloat(document.getElementById('lOutPintUk').value);rv('pintUkIn',fmtv(v/0.568261));}
+}
+</script>
+<div id="site-footer"></div><div id="group-footer"></div>
+<script src="/script.js"></script>
+<script src="/cookie-consent.js"></script>
+</body></html>
