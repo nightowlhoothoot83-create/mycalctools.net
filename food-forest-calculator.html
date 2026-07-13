@@ -75,7 +75,7 @@
 </section>
 <div class="related-section"><h2>Related Tools</h2><div class="related-grid"><a href="/rainwater-calculator.html" class="related-card">🌧️ Rainwater</a><a href="/solar-calculator.html" class="related-card">☀️ Solar Calculator</a></div></div>
 </div></div>
-<script>function fmt(n){return n.toFixed(0).replace(/B(?=(d{3})+(?!d))/g,',')}
+<script>function fmt(n){return n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',')}
   function calcFF(){
     var area=parseFloat(document.getElementById('ffArea').value)||0;
     var mult=parseFloat(document.getElementById('ffClimate').value);

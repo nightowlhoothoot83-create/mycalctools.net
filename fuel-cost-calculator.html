@@ -80,7 +80,7 @@
   <div class="faq-answer"><p>For petrol passenger cars in Australia, under 7 L/100km is considered efficient, 7–10 L/100km is average, and over 10 L/100km is high consumption. Modern hybrid vehicles typically achieve 4–6 L/100km, while electric vehicles have zero fuel consumption (but have charging costs). SUVs and 4WDs typically consume 10–14 L/100km on combined cycles.</p></div></div>
 </div>
 </div></div>
-<script>function fmt(n){return n.toFixed(0).replace(/B(?=(d{3})+(?!d))/g,',')}
+<script>function fmt(n){return n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',')}
   function calcFuel(){
     var dist=parseFloat(document.getElementById('fDist').value)||0;
     var eff=parseFloat(document.getElementById('fEff').value)||0;

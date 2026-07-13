@@ -72,7 +72,7 @@
 </section>
 <div class="related-section"><h2>Related Tools</h2><div class="related-grid"><a href="/australian-tax-calculator.html" class="related-card">🦘 AU Tax Calculator</a><a href="/freelancer-calculator.html" class="related-card">💼 Freelancer Calculator</a></div></div>
 </div></div>
-<script>function fmt(n){return n.toFixed(0).replace(/B(?=(d{3})+(?!d))/g,',')}
+<script>function fmt(n){return n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',')}
   function calcPay(){
     var amt=parseFloat(document.getElementById('payAmt').value)||0;
     var per=document.getElementById('payPer').value;

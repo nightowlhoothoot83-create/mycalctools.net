@@ -68,7 +68,7 @@
 </section>
 <div class="related-section"><h2>Related Tools</h2><div class="related-grid"><a href="/australian-tax-calculator.html" class="related-card">🦘 AU Tax Calculator</a><a href="/pay-calculator.html" class="related-card">💵 Pay Calculator</a></div></div>
 </div></div>
-<script>function fmt(n){return n.toFixed(0).replace(/B(?=(d{3})+(?!d))/g,',')}
+<script>function fmt(n){return n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',')}
   function calcTax(){
     var inc=parseFloat(document.getElementById('txInc').value)||0;
     var c=document.getElementById('txCountry').value;

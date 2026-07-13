@@ -108,6 +108,6 @@
       '<div class="result-item"><div class="result-item-label">Panels Needed</div><div class="result-item-value">'+panels+' × 300W</div></div>'+
       '<div class="result-item"><div class="result-item-label">Battery Bank</div><div class="result-item-value">'+ah+'Ah @ '+v+'V</div></div>'+
       '<div class="result-item"><div class="result-item-label">Battery kWh</div><div class="result-item-value">'+(ah*v/1000).toFixed(1)+' kWh</div></div>'+
-      '<div class="result-item"><div class="result-item-label">Est. System Cost</div><div class="result-item-value">~$'+cost.toFixed(0).replace(/B(?=(d{3})+(?!d))/g,',')+'</div></div>';
+      '<div class="result-item"><div class="result-item-label">Est. System Cost</div><div class="result-item-value">~$'+cost.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',')+'</div></div>';
   }</script>
 <div id="site-footer"></div><div id="group-footer"></div><script src="/script.js"></script></body></html>

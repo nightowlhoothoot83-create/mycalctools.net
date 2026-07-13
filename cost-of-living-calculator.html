@@ -87,7 +87,7 @@
   <div class="faq-answer"><p>A single person renting in a capital city typically needs $3,500–$5,000 per month in after-tax income to cover rent, food, transport, utilities, insurance, and some discretionary spending comfortably. Costs are lower in regional areas — $2,500–$3,500 per month is more typical outside major cities. These are rough guides; your actual costs depend on lifestyle, suburb, transport choices, and spending habits.</p></div></div>
 </div>
 </div></div>
-<script>function fmt(n){return n.toFixed(0).replace(/B(?=(d{3})+(?!d))/g,',')}
+<script>function fmt(n){return n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',')}
   function calcCOL(){
     var inc=parseFloat(document.getElementById('colInc').value)||0;
     var ids=['colRent','colGroc','colTrans','colUtil','colIns','colSubs','colDine','colHlt'];

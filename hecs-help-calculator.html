@@ -77,7 +77,7 @@
   <div class="faq-answer"><p>Voluntary repayments can be worthwhile if your debt is growing faster from CPI indexation than you are repaying it compulsorily. In years of high inflation, this can happen on moderate incomes. However, since HECS carries no true interest rate, paying it down faster is generally lower priority than building an emergency fund, reducing high-interest credit card debt, or contributing to superannuation. Assess your full financial picture first.</p></div></div>
 </div>
 </div></div>
-<script>function fmt(n){return n.toFixed(0).replace(/B(?=(d{3})+(?!d))/g,',')}
+<script>function fmt(n){return n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',')}
   function calcHECS(){
     var debt=parseFloat(document.getElementById('hecsDebt').value)||0;
     var inc=parseFloat(document.getElementById('hecsInc').value)||0;

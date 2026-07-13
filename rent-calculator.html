@@ -78,7 +78,7 @@
   <div class="faq-answer"><p>The 30% rule states you should spend no more than 30% of your gross (pre-tax) income on housing costs including rent and utilities. It is a widely used guideline in Australia and the US. However, it is a starting point, not a strict rule — higher earners can often afford more than 30% comfortably, while lower earners may need to stay well under 30% to cover all other living expenses.</p></div></div>
 </div>
 </div></div>
-<script>function fmt(n){return n.toFixed(0).replace(/B(?=(d{3})+(?!d))/g,',')}
+<script>function fmt(n){return n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',')}
   function calcRent(){
     var inc=parseFloat(document.getElementById('rentInc').value)||0;
     var rent=parseFloat(document.getElementById('rentAmt').value)||0;

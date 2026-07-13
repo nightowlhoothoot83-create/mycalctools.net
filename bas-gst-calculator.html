@@ -79,7 +79,7 @@
   <div class="faq-answer"><p>To find the GST component of a GST-inclusive price, divide the total by 11. For example, a $110 invoice includes $10 GST ($110 ÷ 11 = $10). The pre-GST price is $100. To add GST to a price, multiply by 1.1: $100 × 1.1 = $110 including GST.</p></div></div>
 </div>
 </div></div>
-<script>function fmt(n){return n.toFixed(2).replace(/B(?=(d{3})+(?!d))/g,',')}
+<script>function fmt(n){return n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',')}
   function calcBAS(){
     var sales=parseFloat(document.getElementById('basSales').value)||0;
     var free=parseFloat(document.getElementById('basFree').value)||0;

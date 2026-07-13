@@ -71,7 +71,7 @@
 </section>
 <div class="related-section"><h2>Related Tools</h2><div class="related-grid"><a href="/australian-tax-calculator.html" class="related-card">🦘 AU Tax</a><a href="/hecs-help-calculator.html" class="related-card">🎓 HECS-HELP</a></div></div>
 </div></div>
-<script>function fmt(n){return n.toFixed(0).replace(/B(?=(d{3})+(?!d))/g,',')}
+<script>function fmt(n){return n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',')}
   function calcSuper(){
     var age=parseFloat(document.getElementById('supAge').value)||35;
     var bal=parseFloat(document.getElementById('supBal').value)||0;

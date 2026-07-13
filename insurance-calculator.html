@@ -80,7 +80,7 @@
   <div class="faq-answer"><p>No. The figures produced by this tool are indicative estimates only, based on general assumptions. Actual insurance premiums depend on many individual factors including age, health history, claims history, property location, and the specific policy terms. Contact a licensed insurance broker or compare policies directly on comparison sites such as Canstar or iSelect for accurate quotes.</p></div></div>
 </div>
 </div></div>
-<script>function fmt(n){return n.toFixed(0).replace(/B(?=(d{3})+(?!d))/g,',')}
+<script>function fmt(n){return n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',')}
   function calcIns(){
     var inc=parseFloat(document.getElementById('insInc').value)||0;
     var debt=parseFloat(document.getElementById('insDebt').value)||0;
