@@ -169,8 +169,12 @@ function renderFooter() {
         </div>
       </div>
     </footer>`;
-  var staticFallback = document.getElementById('static-policy-footer');
-  if (staticFallback) staticFallback.style.display = 'none';
+  // NOTE: previously hid the static fallback footer here once the dynamic
+  // one loaded (staticFallback.style.display = 'none'). Removed that —
+  // hidden (display:none) content may not count as genuinely visible/
+  // accessible to some automated content evaluators, even though it's
+  // technically present in the HTML. Keeping both visible is a minor
+  // cosmetic redundancy but removes any ambiguity for AdSense review.
 }
 
 function renderGroupFooter() {
